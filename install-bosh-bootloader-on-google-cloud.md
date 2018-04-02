@@ -4,7 +4,7 @@ For when you have no shell but Google Cloud Shell and want to use [BOSH Bootload
 
 Requirements for BBL out of the box Cloud Shell has:
 
-  - [ ] bosh-cli
+  - [x] bosh-cli
   - [ ] bosh create-env dependencies
   - [ ] terraform
   - [x] ruby
