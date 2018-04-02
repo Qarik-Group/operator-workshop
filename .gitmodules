@@ -1,0 +1,4 @@
+[submodule "bosh-bootloader"]
+	path = bosh-bootloader
+	url = https://github.com/cloudfoundry/bosh-bootloader.git
+	branch = master
