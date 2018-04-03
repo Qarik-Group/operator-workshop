@@ -24,10 +24,20 @@ $ gcloud projects add-iam-policy-binding windy-ellipse-199217 --member='serviceA
 
 ## Setup Environment Variables
 
-Let's export our Service Account to the environment so we can use it to authenticate BOSH Bootloader commands.
+In this repo is an `env-variables` file.  It is set to defaults now of:
 
 ```
-$ export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/bob-the-builder.key.json
+export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/bob-the-builder.key.json
+export BBL_IAAS=gcp
+export BBL_GCP_REGION=us-west1
+export BBL_NAME=lab-1
+export BBL_DEBUG=1
+```
+
+If these look good you can load those variables in the Cloud Shell by "sourcing" the file like this:
+
+```
+$ . env-variables
 ```
 
 Then we'll run this command to test that it's working right:
