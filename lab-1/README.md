@@ -43,5 +43,5 @@ Run the `bin/install-tools` to install the `bosh-cli`, `terraform` and the `bosh
 From the `~/operator-workshop` folder run:
 
 ```
-$ bin/install-tools
+$ sudo bin/install-tools
 ```

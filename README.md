@@ -8,4 +8,10 @@ After you clone this repo grab `bosh-bootloader` submodule:
 git submodule update --init --recursive
 ```
 
-[bosh-lite]: https://github.com/cloudfoundry/bosh-bootloader/blob/master/docs/advanced-configuration.md#deploying-bosh-lite-on-gcp
+## Tools
+
+Will install `bosh-cli`, `terraform`, `bbl` in the `/usr/local/bin`.
+
+```
+$ sudo bin/install-tools
+```
