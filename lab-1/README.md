@@ -40,12 +40,6 @@ If these look good you can load those variables in the Cloud Shell by "sourcing"
 $ . env-variables
 ```
 
-Then we'll run this command to test that it's working right:
-
-```
-$ bbl plan --name lab-1 --iaas gcp --gcp-region us-west1
-```
-
 ## Install Tools
 
 Run the `bin/install-tools` to install the `bosh-cli`, `terraform` and the `bosh bootloader` tools we're going to use.
@@ -54,4 +48,16 @@ From the `~/operator-workshop` folder run:
 
 ```
 $ sudo bin/install-tools
+```
+
+Let's check that everything's up and running by checking that our lab plan can run.
+
+```
+$ bbl plan
+```
+
+If that works, run this to get setup the jumpbox.
+
+```
+$ bbl up
 ```
