@@ -1,20 +1,47 @@
 # lab 1
 
-Do the "getting started GCP" stuff
+To begin all our labs, first clone the code repository from GitHub to your Google Cloud Shell environment.
 
-gcloud iam service-accounts create <service account name>
+```
+$ git clone https://github.com/starkandwayne/operator-workshop.git
+$ cd operator-workshop
+$ git submodule update --init --recursive
+```
 
-gcloud iam service-accounts keys create --iam-account='<service account name>@<project id>.iam.gserviceaccount.com' <service account name>.key.json
+This will copy all our labs down to your Google Cloud Shell that we'll use today.
 
-gcloud projects add-iam-policy-binding <project id> --member='serviceAccount:<service account name>@<project id>.iam.gserviceaccount.com' --role='roles/editor'
+## Create a Service Account
 
-[deploying bosh-lite on GCP][bosh-lite]
+Let's create a Google Cloud service account.
 
-cd lab-1
-export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/<service account name>.key.json
-bbl plan --name some-env --iaas gcp --gcp-region us-west1
-git submodule update --init --recursive
-cp -r ../bosh-bootloader/plan-patches/bosh-lite-gcp/* .
+```
+$ gcloud iam service-accounts create bob-the-builder
 
+$ gcloud iam service-accounts keys create --iam-account='bob-the-builder@windy-ellipse-199217.iam.gserviceaccount.com' bob-the-builder.key.json
 
-[bosh-lite]: https://github.com/cloudfoundry/bosh-bootloader/blob/master/docs/advanced-configuration.md#deploying-bosh-lite-on-gcp
+$ gcloud projects add-iam-policy-binding windy-ellipse-199217 --member='serviceAccount:bob-the-builder@windy-ellipse-199217.iam.gserviceaccount.com' --role='roles/editor'
+```
+
+## Setup Environment Variables
+
+Let's export our Service Account to the environment so we can use it to authenticate BOSH Bootloader commands.
+
+```
+$ export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/bob-the-builder.key.json
+```
+
+Then we'll run this command to test that it's working right:
+
+```
+$ bbl plan --name lab-1 --iaas gcp --gcp-region us-west1
+```
+
+## Install Tools
+
+Run the `bin/install-tools` to install the `bosh-cli`, `terraform` and the `bosh bootloader` tools we're going to use.
+
+From the `~/operator-workshop` folder run:
+
+```
+$ bin/install-tools
+```
