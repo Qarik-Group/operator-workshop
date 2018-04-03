@@ -10,9 +10,10 @@ gcloud projects add-iam-policy-binding <project id> --member='serviceAccount:<se
 
 [deploying bosh-lite on GCP][bosh-lite]
 
-mkdir some-env && cd some-env
-BBL_GCP_SERVICE_ACCOUNT_KEY=<MYSERVICEACCOUNTKEY>
-bbl plan --name some-env --iaas gcp --gcp-region us-west-1
+cd lab-1
+export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/<service account name>.key.json
+bbl plan --name some-env --iaas gcp --gcp-region us-west1
+git submodule update --init --recursive
 cp -r ../bosh-bootloader/plan-patches/bosh-lite-gcp/* .
 
 
