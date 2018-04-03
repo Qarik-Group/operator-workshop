@@ -30,7 +30,7 @@ In this repo is an `env-variables` file.  It is set to defaults now of:
 export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/bob-the-builder.key.json
 export BBL_IAAS=gcp
 export BBL_GCP_REGION=us-west1
-export BBL_ENV_ID=lab-1
+export BBL_ENV_NAME=lab-1
 export BBL_DEBUG=1
 ```
 
