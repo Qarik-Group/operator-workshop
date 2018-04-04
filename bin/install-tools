@@ -15,7 +15,7 @@ unzip terraform_0.11.5_linux_amd64.zip
 mv terraform /usr/local/bin/terraform
 
 # install bbl
-wget -O /usr/local/bin/bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.6.3/bbl-v6.6.3_linux_x86-64
+wget -O /usr/local/bin/bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.6.4/bbl-v6.6.4_linux_x86-64
 chmod +x /usr/local/bin/bbl
 
 popd
