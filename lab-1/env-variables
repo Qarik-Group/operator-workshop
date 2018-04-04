@@ -1,4 +1,4 @@
-export BBL_GCP_SERVICE_ACCOUNT_KEY=~/operator-workshop/bob-the-builder.key.json
+export BBL_GCP_SERVICE_ACCOUNT_KEY=../bob-the-builder.key.json
 export BBL_IAAS=gcp
 export BBL_GCP_PROJECT_ID=windy-ellipse-199217
 export BBL_GCP_REGION=us-west1
