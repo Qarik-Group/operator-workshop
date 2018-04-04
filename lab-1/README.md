@@ -1,15 +1,5 @@
 # lab 1
 
-To begin all our labs, first clone the code repository from GitHub to your Google Cloud Shell environment.
-
-```
-$ git clone https://github.com/starkandwayne/operator-workshop.git
-$ cd operator-workshop
-$ git submodule update --init --recursive
-```
-
-This will copy all our labs down to your Google Cloud Shell that we'll use today.
-
 ## Create a Service Account
 
 Let's create a Google Cloud service account.
