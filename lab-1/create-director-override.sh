@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "no director for now"
 # bosh create-env \
 #   ${BBL_STATE_DIR}/bosh-deployment/bosh.yml \
 #   --state  ${BBL_STATE_DIR}/vars/bosh-state.json \
