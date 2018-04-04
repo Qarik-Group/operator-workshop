@@ -2,12 +2,13 @@
 
 ## Setup Google Cloud
 
-log into https://console.cloud.google.com with a google account.
+1. Notify [the instructor][instructor_email] with your Google account email address.  This is used to provide access to the lab resources.
 
-Send the email address to [the instructor][instructor_email] so they can add your user to the project resources we'll be using for the labs.
-
-[instructor_email]: <mailto:tbird@starkandwayne.com>
+2. Check your email that notifies you of access, then log into https://console.cloud.google.com.
 
 ## Confirm Project
 
-This process confirms you have access to Google Cloud and are ready to work on the remaining labs.
+1. You can confirm you have access when you have logged into Google Cloud and can see the [Project info][identifying_projects] says *Project Name* of "bosh-operator-class".
+
+[instructor_email]: <mailto:tbird@starkandwayne.com>
+[identifying_projects]: https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects
