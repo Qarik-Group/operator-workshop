@@ -1,6 +1,6 @@
 # operator-workshop
 
-lab material for cf summit operator workshop
+This repo contains code and lab material for the Cloud Foundry Summit 2018 BOSH Operator Workshop class.
 
 ## Initial Setup
 
@@ -16,7 +16,7 @@ $ cd operator-workshop
 $ git submodule update --init --recursive
 ```
 
-This copies all our labs down to your Google Cloud Shell.
+This copies all our labs down to your **Google Cloud Shell**.
 
 ## Tools
 
