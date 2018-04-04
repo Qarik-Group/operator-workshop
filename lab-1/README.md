@@ -1,5 +1,11 @@
 # lab 1
 
+What is the purpose of this lab?
+
+It is to show how bosh can be used to deploy bosh.  That's freaking awesome.
+
+![mind blown][mind-blown]
+
 ## Create a Service Account
 
 Let's create a Google Cloud service account.
@@ -51,3 +57,5 @@ If that works, run this to get setup the jumpbox.
 ```
 $ bbl up
 ```
+
+[mind-blown]: https://github.com/starkandwayne/operator-workshop/raw/master/images/mind-blown.gif "Mind Blown"

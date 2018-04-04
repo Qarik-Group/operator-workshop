@@ -16,7 +16,7 @@ $ cd operator-workshop
 $ git submodule update --init --recursive
 ```
 
-This copies all our labs down to your **Google Cloud Shell**.
+This copies all our labs down to your **Google Cloud Shell**.  We use the Cloud Shell because this gives us a common denominator for each of us who might be using different computer platforms to use this workshop (Windows, Mac, Linux).
 
 ## Tools
 
