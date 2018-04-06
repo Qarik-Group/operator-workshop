@@ -5,3 +5,6 @@ export BBL_GCP_REGION=us-west1
 export BBL_GCP_ZONE=us-west1-a
 export BBL_ENV_NAME=lab-1
 export BBL_DEBUG=1
+
+export GCP_SERVICE_ACCOUNT=bob-the-builder
+export GCP_PROJECT=learn-gcp-bosh
