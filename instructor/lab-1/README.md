@@ -1,10 +1,12 @@
 # lab 1
 
-For the instructor, this is what you'll do to help students be ready to do lab 0.
+## Pre-student
 
-## Authenticate
+Before the student starts lab 1, do the following:
 
-As an instructor, sign into the **student-workspace** server.
+### Authenticate
+
+As an instructor, sign into `gcloud` on the **student-workspace** server.
 
 ```
 gcloud auth login
@@ -12,20 +14,18 @@ gcloud auth login
 
 It will give you a URL to click.  Follow link and receive a token to enter back into the SSH terminal to complete the login.
 
-## Create a Service Account
+### Create a Service Account
 
-Let's create a Google Cloud service account.  We're going to create a universal folder and file that every student will use a shared service account.  It will be in `/var/lib/gcloud` and the `bob-the-builder.key.json` file.
-
-Create the folder and file with permissions that any user can get to.
+Create a shared Google Cloud service account.  It will be in a folder that everyone can use and access.
 
 ```
 $ sudo mkdir -p /var/lib/gcloud
 $ cd /var/lib/gcloud
-$ touch bob-the-builder.key.json
+$ sudo touch bob-the-builder.key.json
 $ sudo chmod 0777 bob-the-builder.key.json
 ```
 
-Run these `gcloud` commands to create the service account, where `bob-the-builder` is the name of the service account and `bosh-operator-class` is our project-id.
+In this example, `bob-the-builder` is the name of the **service account** and `bosh-operator-class` is our **project-id**.
 
 ```
 $ gcloud iam service-accounts create bob-the-builder
@@ -33,46 +33,39 @@ $ gcloud iam service-accounts keys create --iam-account='bob-the-builder@bosh-op
 $ gcloud projects add-iam-policy-binding bosh-operator-class --member='serviceAccount:bob-the-builder@bosh-operator-class.iam.gserviceaccount.com' --role='roles/editor'
 ```
 
-## Setup Environment Variables
+If for any reason the key is lost, the middle command `gcloud iam service-accounts keys create` can be used to re-generate the key.
 
-In this repo is an `env-variables` file.  It's defaults are set to:
+### Setup Software and Libraries
 
-```
-export BBL_GCP_SERVICE_ACCOUNT_KEY=/var/lib/gcloud/bob-the-builder.key.json
-export BBL_IAAS=gcp
-export BBL_GCP_PROJECT_ID=bosh-operator-class
-export BBL_GCP_REGION=us-east1
-export BBL_GCP_ZONE=us-east1-b
-export BBL_ENV_NAME=lab-1
-export BBL_DEBUG=1
-```
+1. Open the lab folder: `~/operator-workshop/instructor/lab-1`
+2. Install software and libraries for this lab: `bin/setup-lab-1`
 
-If these look good you can load those variables on the **student-workspace** server by "sourcing" the file:
+This will ensure that the correct system libraries and software are on the **student-workspace** server.
 
-```
-$ . env-variables
-```
+### Ready
 
-## Install Tools
+The student is now ready to begin lab-1.
 
-Run the `bin/install-tools` to install the `bosh-cli`, `terraform` and the `bosh bootloader` tools we're going to use.
+## During lab-1
 
-From the `~/operator-workshop` folder run:
+### IP Out of Range
+
+When users do a `bosh create-env` and for the network settings we have some defaults.
 
 ```
-$ sudo bin/install-tools
+us-east1	default		10.142.0.0/20	10.142.0.1			Flow logs:Off
 ```
 
-Let's check that everything's up and running by checking that our lab plan can run.
+Yet, the first time they to the `bosh create-env` they get and error that the internal IP is outside the range.
 
 ```
-$ bbl plan
+Deploying:
+  Creating instance 'bosh/0':
+    Creating VM:
+      Creating vm with stemcell cid 'stemcell-3eed4c18-94fb-490d-6841-88c09c1bb9d3':
+        CPI 'create_vm' method responded with error: CmdError{"type":"Bosh::Clouds::VMCreationFailed","message":"VM failed to create: googleapi: Error 400: Invalid
+value for field 'resource.networkInterfaces[0].networkIP': '10.0.0.6'. Requested internal IP is outside the subnetwork CIDR range., invalid","ok_to_retry":true}
+Exit code 1
 ```
 
-If that works, run this to get setup the jumpbox.
-
-```
-$ bbl up
-```
-
-[mind-blown]: https://github.com/starkandwayne/operator-workshop/raw/master/images/mind-blown.gif "Mind Blown"
+To fix this, they need to Change it to a `10.142.x.x` address.
