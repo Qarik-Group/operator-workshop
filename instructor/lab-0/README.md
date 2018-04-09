@@ -37,15 +37,17 @@ Create a firewall rule.
   * source IP ranges: **0.0.0.0/0**
   * specified protocols and ports: **tcp:22**
 
-### Workspace VMs
+### Workspace VM
 
-We need to have a unique workspace vm for each student.  These are the servers that the students ssh into over a web browser and issue commands.  Use the 2vcpu n1-highcpu-2 so we can compile faster.
+Each student's linux user is created by Google and their user name when they use the SSH command.
 
-Under Compute Engine, **Create an Instance** for each student.
+You can create one large student workplace machine for all students to use.  Or you could create a "red team" vs "blue team".  The idea is that it's not confusing for the students to connect.
 
-  * name: student-workspace-**n**
+Under Compute Engine, **Create an Instance**.
+
+  * name: student-workspace
   * zone: near your location
-  * machine type: **n1-highcpu-2**
+  * machine type: **n1-highmem-64**
   * boot disk: Ubuntu 14.04 LTS
   * identity and API access: **Allow full access to all Cloud APIs**
 
