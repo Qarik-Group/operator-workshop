@@ -1,5 +1,7 @@
 # lab 1
 
+For the instructor, this is what you'll do to help students be ready to do lab 0.
+
 What is the purpose of this lab?
 
 It is to show how bosh can be used to deploy bosh.  That's freaking awesome.

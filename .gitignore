@@ -1,2 +1,5 @@
+# Desktop Services Store
 .DS_Store
+
+# Google Cloud Service Account Key
 *.key.json
