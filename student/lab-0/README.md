@@ -22,5 +22,11 @@ $ git submodule update --init --recursive
 
 This copies all our labs down to the **student-workspace** server.  We use a VM running on the target infrastructure because this gives us a common denominator for each of us who might be using different computer platforms to use this workshop (Windows, Mac, Linux).
 
+## Ready
+
+You are now ready to run [lab 1][lab-1].  There will be some discussion first and then we'll jump right in.
+
 [instructor_email]: <mailto:tbird@starkandwayne.com>
 [identifying_projects]: https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects
+[ssh-button]: https://cloud.google.com/compute/docs/instances/connecting-to-instance
+[lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
