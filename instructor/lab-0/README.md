@@ -31,11 +31,11 @@ Go to VPC networks > **Firewall rules**
 
 Create a firewall rule.
 
-name: **allow-ssh**
-network: **student-network1**
-targets: **All instances in the network**
-source IP ranges: **0.0.0.0/0**
-specified protocols and ports: **tcp:22**
+  * name: **allow-ssh**
+  * network: **student-network1**
+  * targets: **All instances in the network**
+  * source IP ranges: **0.0.0.0/0**
+  * specified protocols and ports: **tcp:22**
 
 ### Workspace VMs
 
@@ -43,11 +43,11 @@ We need to have a unique workspace vm for each student.  These are the servers t
 
 Under Compute Engine, **Create an Instance** for each student.
 
-Name: student-workspace-**n**
-Zone: near your location
-Machine Type: **n1-highcpu-2**
-Boot Disk: Ubuntu 14.04 LTS
-Identity and API access: **Allow full access to all Cloud APIs**
+  * name: student-workspace-**n**
+  * zone: near your location
+  * machine type: **n1-highcpu-2**
+  * boot disk: Ubuntu 14.04 LTS
+  * identity and API access: **Allow full access to all Cloud APIs**
 
 Under the Management, disks, networking, SSH keys, switch to the **Networking** tab.
 
