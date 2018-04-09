@@ -4,7 +4,7 @@ This repo contains code and lab material for the Cloud Foundry Summit 2018 BOSH 
 
 ## Initial Setup
 
-1. Ensure you have [access to the infrastructure][lab-0].
+1. Ensure you have [access to the infrastructure][student/lab-0].
 
 2. Next, sign in to your Google Account, and start a [Google Cloud Shell][cloud-shell].
 
