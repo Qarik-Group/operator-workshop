@@ -14,8 +14,8 @@ wget -O /usr/local/bin/bosh https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli
 chmod +x /usr/local/bin/bosh
 
 # install terraform
-wget https://releases.hashicorp.com/terraform/0.11.5/terraform_0.11.5_linux_amd64.zip
-unzip terraform_0.11.5_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/0.11.6/terraform_0.11.6_linux_amd64.zip
+unzip terraform_0.11.6_linux_amd64.zip
 mv terraform /usr/local/bin/terraform
 
 # install bbl
