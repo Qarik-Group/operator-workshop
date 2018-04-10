@@ -10,10 +10,14 @@ amirite?
 
 ### Create Environment
 
-Let's create a `create-env.sh` file.  We do this because many times when we need to create a BOSH
-director we will need to run or re-run this command.  And it's good to have it in a script.
+1. Let's create a `create-env.sh` file.  
 
-This provides you with the ability to document what settings are used for your deployment, and to re-use the `create-env` command when performing updates to the BOSH director at a later time.
+We do this because many times when we need to create a BOSH director we will
+need to run or re-run this command.  And it's good to have it in a script.
+
+This provides you with the ability to document what settings are used for your
+deployment, and to re-use the `create-env` command when performing updates to
+the BOSH director at a later time.
 
 ```
 #!/usr/bin/env bash
@@ -24,7 +28,7 @@ bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/gcp/cpi.yml \
-    -o bosh-deployment/external-ip-not-recommended.yml \    
+    -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
     -v internal_cidr=10.0.0.0/24 \
     -v internal_gw=10.0.0.1 \
@@ -35,14 +39,40 @@ bosh create-env bosh-deployment/bosh.yml \
     -v tags=[internal] \
     -v network=default \
     -v subnetwork=default \
-    -v external_ip=35.196.19.152
+    -v external_ip=$MY_EXTERNAL_IP
+```
+
+2. Set an `external_ip` value.
+
+Before running the `create-env.sh` script see your student worksheet for the IP
+address you'll use for the labs.
+
+This command sets the environment variable in your SSH session, where
+`35.196.19.152` is your IP address.
+
+```
+export MY_EXTERNAL_IP=35.196.19.152
+```
+
+3. Clone the `bosh-deployment` repo to this folder.
+
+```
+$ git clone https://github.com/cloudfoundry/bosh-deployment
+```
+
+This provides us with the software we need to deploy BOSH.
+
+4. We're now ready to test the `create-env.sh` script and see what we get.
+
+```
+$ ./create-env.sh
 ```
 
 ### Result
 
 What is the result of running this script?  Why does it fail?
 
-## BOSH Authentication
+## Authentication
 
 ### Alias Environments
 
@@ -72,7 +102,7 @@ NOTE: What does this save us?
 
 ### Login to BOSH
 
-To get the admin password for login, BOSH created it for us while the `create-env` command was run.  It was rendered to the `creds.file` just like the CA cert was.
+To get the admin password for login, BOSH created it for us while the `create-env` command was run.  It was rendered to the `creds.yml` just like the CA cert was.
 
 Let's open the file to look at it.
 
