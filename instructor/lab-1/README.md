@@ -61,4 +61,4 @@ value for field 'resource.networkInterfaces[0].networkIP': '10.0.0.6'. Requested
 Exit code 1
 ```
 
-To fix this, they need to Change it to a `10.142.x.x` address.
+To fix this, they need to *change the IP* to a `10.142.x.x` address.
