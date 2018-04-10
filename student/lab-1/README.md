@@ -25,7 +25,7 @@ bosh create-env bosh-deployment/bosh.yml \
     --vars-store=creds.yml \
     -o bosh-deployment/gcp/cpi.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \    
-    -v director_name=bosh-1 \
+    -v director_name=bosh-director \
     -v internal_cidr=10.0.0.0/24 \
     -v internal_gw=10.0.0.1 \
     -v internal_ip=10.0.0.6 \
@@ -35,7 +35,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v tags=[internal] \
     -v network=default \
     -v subnetwork=default \
-    -v external_ip=35.196.19.152   
+    -v external_ip=35.196.19.152
 ```
 
 ### Result
@@ -77,10 +77,10 @@ To get the admin password for login, BOSH created it for us while the `create-en
 Let's open the file to look at it.
 
 ```
-$ less certs.yml
+$ less creds.yml
 ```
 
-To login to the BOSH director, copy the admin password from the `certs.yml`, then run the `login` command.  The
+To login to the BOSH director, copy the admin password from the `creds.yml`, then run the `login` command.  The username is `admin`.
 
 ```
 $ bosh login
@@ -102,7 +102,8 @@ bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/gcp/cpi.yml \
-    -v director_name=bosh-1 \
+    -o bosh-deployment/external-ip-not-recommended.yml \    
+    -v director_name=bosh-director \
     -v internal_cidr=10.142.0.0/24 \
     -v internal_gw=10.142.0.1 \
     -v internal_ip=10.142.0.6 \
@@ -111,7 +112,8 @@ bosh create-env bosh-deployment/bosh.yml \
     -v zone=us-east1-c \
     -v tags=[internal] \
     -v network=default \
-    -v subnetwork=default
+    -v subnetwork=default \
+    -v external_ip=35.196.19.152
 ```
 
 TODO: add the flags for UAA and CredHub.
