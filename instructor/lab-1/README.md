@@ -1,6 +1,6 @@
 # lab 1
 
-## Pre-student
+## Before lab-1
 
 Before the student starts lab 1, do the following:
 

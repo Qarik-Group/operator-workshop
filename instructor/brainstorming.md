@@ -13,3 +13,8 @@ Maybe I let them figure out how to create a "delete-environment" task?
 Why would they need to delete an environment?  Have them come up with use-cases.
 
 This could also be a good way for them to start to explore more about using the bosh command line and getting "help" for finding command line "commands."
+
+If you lose the state file it can be recovered only if you can determine specific
+variables from your infrastructure and regenerate it by using the `create-env`
+command.
+https://bosh.io/docs/cli-envs.html#recover-deployment-state
