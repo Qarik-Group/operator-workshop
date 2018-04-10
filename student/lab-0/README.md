@@ -20,7 +20,7 @@ $ cd operator-workshop
 $ git submodule update --init --recursive
 ```
 
-This copies all our labs down to the **student-workspace** server.  We use a VM running on the target infrastructure because this gives us a common denominator for each of us who might be using different computer platforms to use this workshop (Windows, Mac, Linux).
+This copies all our labs down to your folder on the **student-workspace** server.  We use a VM running on the target infrastructure because this gives us a common denominator for each of us who might be using different computer platforms to use this workshop (Windows, Mac, Linux).
 
 ## Ready
 
