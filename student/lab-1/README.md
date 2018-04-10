@@ -24,6 +24,7 @@ bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/gcp/cpi.yml \
+    -o bosh-deployment/external-ip-not-recommended.yml \    
     -v director_name=bosh-1 \
     -v internal_cidr=10.0.0.0/24 \
     -v internal_gw=10.0.0.1 \
@@ -33,12 +34,57 @@ bosh create-env bosh-deployment/bosh.yml \
     -v zone=us-east1-c \
     -v tags=[internal] \
     -v network=default \
-    -v subnetwork=default
+    -v subnetwork=default \
+    -v external_ip=35.196.19.152   
 ```
 
 ### Result
 
 What is the result of running this script?  Why does it fail?
+
+## BOSH Authentication
+
+### Alias Environments
+
+An alias creates a shortcut that saves the additional connection parameters to a name.  So if we had these parameters:
+
+  * IP: 35.227.47.126
+  * Certificate Authority
+  * Name: bosh-director
+
+In the same folder we ran the `create-env.sh`, we'd create an `alias-env` command like so:
+
+```
+$ bosh alias-env bosh-director -e 35.196.19.152 --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
+```
+
+### Using Environments
+
+NOTE: Why do we want to run it there?
+
+Then we're going to set an environment variable to the name of our alias.
+
+```
+export BOSH_ENVIRONMENT=bosh-director
+```
+
+NOTE: What does this save us?
+
+### Login to BOSH
+
+To get the admin password for login, BOSH created it for us while the `create-env` command was run.  It was rendered to the `creds.file` just like the CA cert was.
+
+Let's open the file to look at it.
+
+```
+$ less certs.yml
+```
+
+To login to the BOSH director, copy the admin password from the `certs.yml`, then run the `login` command.  The
+
+```
+$ bosh login
+```
 
 ### Add Processes
 
