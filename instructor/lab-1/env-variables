@@ -1,7 +1,0 @@
-export BBL_GCP_SERVICE_ACCOUNT_KEY=/var/lib/gcloud/bob-the-builder.key.json
-export BBL_IAAS=gcp
-export BBL_GCP_PROJECT_ID=bosh-operator-class
-export BBL_GCP_REGION=us-east1
-export BBL_GCP_ZONE=us-east1-b
-export BBL_ENV_NAME=lab-1
-export BBL_DEBUG=1
