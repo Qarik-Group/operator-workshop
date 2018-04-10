@@ -52,14 +52,14 @@ But we need `git.`
 $ sudo apt-get install -y git
 ```
 
-Then we can clone the repo and install the rest.
+Then we can clone the repo and install everything we need.
 
 ```
 $ git clone https://github.com/starkandwayne/operator-workshop.git
-cd operator-workshop/
-sudo bin/install-tools
+$ cd operator-workshop/
+$ sudo bin/install-tools
 ```
 
 Ready to rock, let's get [lab-1][lab-1] specific requirements setup now.
 
-[lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
+[lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/instructor/lab-1

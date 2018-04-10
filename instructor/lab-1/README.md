@@ -35,13 +35,6 @@ $ gcloud projects add-iam-policy-binding bosh-operator-class --member='serviceAc
 
 If for any reason the key is lost, the middle command `gcloud iam service-accounts keys create` can be used to re-generate the key.
 
-### Setup Software and Libraries
-
-1. Open the lab folder: `~/operator-workshop/instructor/lab-1`
-2. Install software and libraries for this lab: `bin/setup-lab-1`
-
-This will ensure that the correct system libraries and software are on the **student-workspace** server.
-
 ### Ready
 
 The student is now ready to begin lab-1.
