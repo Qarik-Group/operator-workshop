@@ -9,7 +9,7 @@ Before the student starts lab 1, do the following:
 As an instructor, sign into `gcloud` on the **student-workspace** server.
 
 ```
-gcloud auth login
+$ gcloud auth login
 ```
 
 It will give you a URL to click.  Follow link and receive a token to enter back into the SSH terminal to complete the login.
@@ -46,8 +46,8 @@ user will have to change their subnet range in the `cloud-config.yml`, where
 `1` is their student ID:
 
 ```
-- range: 10.165.x.0/24
-- range: 10.165.1.0/24
+- range: 10.42.x.0/24
+- range: 10.42.1.0/24
 ```
 
 ### Release Steps
