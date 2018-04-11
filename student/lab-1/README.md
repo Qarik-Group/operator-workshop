@@ -30,9 +30,9 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/gcp/cpi.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
-    -v internal_cidr=10.0.0.0/24 \
+    -v internal_cidr=10.0.0.0/20 \
     -v internal_gw=10.0.0.1 \
-    -v internal_ip=10.0.0.6 \
+    -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
     -v project_id=bosh-operator-class \
     -v zone=us-east1-c \
@@ -45,12 +45,12 @@ bosh create-env bosh-deployment/bosh.yml \
 2. Set an `external_ip` value.
 
 Before running the `create-env.sh` script see your student worksheet for the IP
-address you'll use for the labs.
+addresses you'll use for the labs.
 
-This command sets the environment variable in your SSH session, where
-`35.196.19.152` is your IP address.
+This command sets the environment variables in your SSH session.
 
 ```
+export MY_INTERNAL_IP=10.0.0.6
 export MY_EXTERNAL_IP=35.196.19.152
 ```
 
