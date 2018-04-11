@@ -148,7 +148,7 @@ Every cloud needs a default **cloud-config** to begin.  The
 started.
 
 First team to get all there team mates BOSH directors to a BOSH release, wins 10
-points.  And the winning team at the end of the labs get a prize!
+points.  And the winning team at the end of our workshop gets a prize!
 
 [bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
 [zookeeper-release]: https://github.com/cppforlife/zookeeper-release
