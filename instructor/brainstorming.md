@@ -18,3 +18,8 @@ If you lose the state file it can be recovered only if you can determine specifi
 variables from your infrastructure and regenerate it by using the `create-env`
 command.
 https://bosh.io/docs/cli-envs.html#recover-deployment-state
+
+
+10.165.0.0 workspace
+
+10.165.1.0/24 .. x students up to 250ish students

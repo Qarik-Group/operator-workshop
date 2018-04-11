@@ -14,13 +14,15 @@ attendance.
 
 ### Networking
 
-For this lab, we're using the default `10.142.0.0/20` in the **us-east1** region.
+For this lab, we're using a student network.  We recommend a `10.165.0.0/16`
+because it can be divided into 256 `/24` subnets.  Which gives each student their
+own `/24` subnet for each bosh-director we deploy.
 
 ### Firewall
 
 To ensure firewalls don't become an issue.  Disable them on the internal network.
 
-Create rules that allow ingress/egress for any traffic on `10.142.0.0/20` on any port.
+Create rules that allow ingress/egress for any traffic on `10.165.0.0/16` on any port.
 
 ### Workspace
 
@@ -37,7 +39,7 @@ it straight for the student too.
 
 2. Under the Management, disks, networking, SSH keys, switch to the **Networking** tab.
 
-3. Change the Network interface tab to the **student-network-1**.
+3. Change the Network interface tab to the **student**.
 
 4. **Create** the VM.
 

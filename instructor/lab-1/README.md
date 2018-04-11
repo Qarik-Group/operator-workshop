@@ -39,33 +39,24 @@ If for any reason the key is lost, the middle command `gcloud iam service-accoun
 
 The student is now ready to begin lab-1.
 
-## During lab-1
-
-### IP Out of Range
-
-When users do a `bosh create-env` and for the network settings we have some defaults.
-
-```
-us-east1	default		10.142.0.0/20	10.142.0.1			Flow logs:Off
-```
-
-Yet, the first time they to the `bosh create-env` they get and error that the internal IP is outside the range.
-
-```
-Deploying:
-  Creating instance 'bosh/0':
-    Creating VM:
-      Creating vm with stemcell cid 'stemcell-3eed4c18-94fb-490d-6841-88c09c1bb9d3':
-        CPI 'create_vm' method responded with error: CmdError{"type":"Bosh::Clouds::VMCreationFailed","message":"VM failed to create: googleapi: Error 400: Invalid
-value for field 'resource.networkInterfaces[0].networkIP': '10.0.0.6'. Requested internal IP is outside the subnetwork CIDR range., invalid","ok_to_retry":true}
-Exit code 1
-```
-
-To fix this, they need to *change the IP* to a `10.142.x.x` address.
-
 ## Team Time Cheat Sheet
 
-A hard-coded cloud-config is available in the student lab-1 ready to go.
+A hard-coded cloud-config is available in the student lab-1 ready to go. The
+user will have to change their subnet range in the `cloud-config.yml`, where
+`1` is their student ID:
+
+```
+- range: 10.165.x.0/24
+- range: 10.165.1.0/24
+```
+
+### Release Steps
+
+Then these commands would be able to help them do a deploy.
+
+1. Configure and update cloud-config.
+2. Clone the repo.
+3. Deploy bosh release.
 
 ```
 $ bosh update-cloud-config ~/operator-workshop/student/lab-1/cloud-config.yml
@@ -74,11 +65,14 @@ $ cd zookeeper-release
 $ bosh -d zookeeper deploy manifests/zookeeper.yml
 ```
 
-Yet they will also need to upload a stemcell.  Let them fail on that first.
-Explore the stemcell page, talk about what it is, and how to use the command.
+### Stemcell
 
-http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
+Yet they will also need to upload a stemcell.  Let them fail on that first.
+Then explore the [stemcell page][stemcell-page], talk about what it is, and how
+to use the command.
 
 ```
 $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
 ```
+
+[stemcell-page]: http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
