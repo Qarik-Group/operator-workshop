@@ -39,7 +39,7 @@ networks:
       network_name: default
       subnetwork_name: default
       ephemeral_external_ip: true
-      tags: ((tags))
+      tags: [internal, concourse]
 - name: vip
   type: vip
 
