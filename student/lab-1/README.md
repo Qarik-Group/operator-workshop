@@ -28,6 +28,8 @@ bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/gcp/cpi.yml \
+    -o bosh-deployment/uaa.yml \
+    -o bosh-deployment/credhub.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
     -v internal_cidr=10.0.0.0/20 \
@@ -144,11 +146,11 @@ You need to deploy a "hello world" BOSH release.  We recommended the
 [zookeeper-release][zookeeper-release] for BOSH.
 
 Every cloud needs a default **cloud-config** to begin.  The
-[bosh-deployment][bosh-deployment-cloud-config] repo has example cloud-configs to get us
-started.
+[bosh-deployment][bosh-deployment-cloud-config] repo has example cloud-configs,
+and we have one in our repo here to get us started.
 
-First team to get all there team mates BOSH directors to a BOSH release, wins 10
-points.  And the winning team at the end of our workshop gets a prize!
+First team to get all their teammates to deploy the BOSH release, wins 10
+points.  At the end of the workshop we have a prize for the winning team!
 
 [bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
 [zookeeper-release]: https://github.com/cppforlife/zookeeper-release
