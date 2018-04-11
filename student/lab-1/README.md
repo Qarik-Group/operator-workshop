@@ -65,12 +65,13 @@ This provides us with the software we need to deploy BOSH.
 4. We're now ready to test the `create-env.sh` script and see what we get.
 
 ```
+$ sudo chmod +x create-env.sh
 $ ./create-env.sh
 ```
 
 ### Result
 
-What is the result of running this script?  Why does it fail?
+What happens when we run this script?  Look at the error message for clues.
 
 ## Authentication
 
@@ -90,15 +91,30 @@ $ bosh alias-env bosh-director -e 35.196.19.152 --ca-cert <(bosh int creds.yml -
 
 ### Using Environments
 
-NOTE: Why do we want to run it there?
+When using bosh commands we can either provide the environment in each command,
+for example:
 
-Then we're going to set an environment variable to the name of our alias.
+```
+$ bosh -e bosh-director stemcells
+$ bosh -e bosh-director update-cloud-config
+$ bosh -e bosh-director deployments
+```
+
+Or you can export an environment variable, and the commands will look like this.
+
+```
+$ bosh stemcells
+$ bosh update-cloud-config
+$ bosh deployment
+```
+
+Here's how we do this:
 
 ```
 export BOSH_ENVIRONMENT=bosh-director
 ```
 
-NOTE: What does this save us?
+NOTE: How do you check what your environment is set to?
 
 ### Login to BOSH
 
@@ -116,56 +132,24 @@ To login to the BOSH director, copy the admin password from the `creds.yml`, the
 $ bosh login
 ```
 
-### Add Processes
-
-Another great advantage of having a `create-env.sh` script is that you can add Processes
-(services) to your BOSH director with operator files.
-
-In this example we'll add the UAA and CredHub processes to our BOSH Director.
-
-```
-#!/usr/bin/env bash
-
-set -eu
-
-bosh create-env bosh-deployment/bosh.yml \
-    --state=state.json \
-    --vars-store=creds.yml \
-    -o bosh-deployment/gcp/cpi.yml \
-    -o bosh-deployment/external-ip-not-recommended.yml \    
-    -v director_name=bosh-director \
-    -v internal_cidr=10.142.0.0/24 \
-    -v internal_gw=10.142.0.1 \
-    -v internal_ip=10.142.0.6 \
-    --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
-    -v project_id=bosh-operator-class \
-    -v zone=us-east1-c \
-    -v tags=[internal] \
-    -v network=default \
-    -v subnetwork=default \
-    -v external_ip=35.196.19.152
-```
-
-TODO: add the flags for UAA and CredHub.
-
 ### Result
 
-How do we check for UAA and Credhub after deploying them?
+We are now logged into the director.
 
-### Delete-env
+## Team Time
 
-Delete env stands as an inverse to `create-env` and is used in pre-production
-environments.  It takes the same arguments and state file
+We're going to break into teams at this time.
 
-### Result
+You need to deploy a "hello world" BOSH release.  We recommended the
+[zookeeper-release][zookeeper-release] for BOSH.
 
-Our BOSH Director is gone.  But we can get it back by running create-env at any
-time, more quickly this next time because resources for the releases have been
-downloaded and compiled locally already.
+Every cloud needs a default **cloud-config** to begin.  The
+[bosh-deployment][bosh-deployment-cloud-config] repo has example cloud-configs to get us
+started.
 
-If you lose the state file it can be recovered only if you can determine specific
-variables from your infrastructure and regenerate it by using the `create-env`
-command.
-https://bosh.io/docs/cli-envs.html#recover-deployment-state
+First team to get all there team mates BOSH directors to a BOSH release, wins 10
+points.  And the winning team at the end of the labs get a prize!
 
+[bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
+[zookeeper-release]: https://github.com/cppforlife/zookeeper-release
 [mind-blown]: https://github.com/starkandwayne/operator-workshop/raw/master/images/mind-blown.gif "Mind Blown"
