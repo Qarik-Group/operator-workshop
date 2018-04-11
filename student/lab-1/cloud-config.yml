@@ -32,8 +32,8 @@ networks:
   type: manual
   subnets:
     # replace x with student ID
-  - range: 10.165.x.0/24
-    gateway: 10.165.0.1
+  - range: 10.42.x.0/24
+    gateway: 10.42.0.1
     azs: [z1, z2, z3]
     dns: [8.8.8.8]
     cloud_properties:

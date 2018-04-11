@@ -14,15 +14,14 @@ attendance.
 
 ### Networking
 
-For this lab, we're using a student network.  We recommend a `10.165.0.0/16`
-because it can be divided into 256 `/24` subnets.  Which gives each student their
-own `/24` subnet for each bosh-director we deploy.
+For this lab, we're using a student network.  We recommend a `10.42.0.0/16`
+because it can give up-to 256 students their own `/24` subnet.
 
 ### Firewall
 
 To ensure firewalls don't become an issue.  Disable them on the internal network.
 
-Create rules that allow ingress/egress for any traffic on `10.165.0.0/16` on any port.
+Create rules that allow ingress/egress for any traffic on `10.42.0.0/16` on any port.
 
 ### Workspace
 
