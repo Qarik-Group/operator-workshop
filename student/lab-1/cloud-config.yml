@@ -40,6 +40,15 @@ networks:
       subnetwork_name: default
       ephemeral_external_ip: true
       tags: [internal, concourse]
+  - range: 10.142.1.0/24
+    gateway: 10.142.1.1
+    azs: [z1, z2, z3]
+    dns: [8.8.8.8]
+    cloud_properties:
+      network_name: default
+      subnetwork_name: default
+      ephemeral_external_ip: true
+      tags: [internal, concourse]
 - name: vip
   type: vip
 

@@ -62,3 +62,23 @@ Exit code 1
 ```
 
 To fix this, they need to *change the IP* to a `10.142.x.x` address.
+
+## Team Time Cheat Sheet
+
+A hard-coded cloud-config is available in the student lab-1 ready to go.
+
+```
+$ bosh update-cloud-config ~/operator-workshop/student/lab-1/cloud-config.yml
+$ git clone https://github.com/cppforlife/zookeeper-release.git
+$ cd zookeeper-release
+$ bosh -d zookeeper deploy manifests/zookeeper.yml
+```
+
+Yet they will also need to upload a stemcell.  Let them fail on that first.
+Explore the stemcell page, talk about what it is, and how to use the command.
+
+http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
+
+```
+$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
+```
