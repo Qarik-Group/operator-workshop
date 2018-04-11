@@ -31,8 +31,9 @@ networks:
 - name: default
   type: manual
   subnets:
-  - range: 10.142.0.0/20
-    gateway: 10.142.0.1
+    # replace x with student ID
+  - range: 10.165.x.0/24
+    gateway: 10.165.0.1
     azs: [z1, z2, z3]
     dns: [8.8.8.8]
     cloud_properties:
@@ -40,16 +41,7 @@ networks:
       subnetwork_name: default
       ephemeral_external_ip: true
       tags: [internal, concourse]
-  - range: 10.142.1.0/24
-    gateway: 10.142.1.1
-    azs: [z1, z2, z3]
-    dns: [8.8.8.8]
-    cloud_properties:
-      network_name: default
-      subnetwork_name: default
-      ephemeral_external_ip: true
-      tags: [internal, concourse]
-- name: vip
+  name: vip
   type: vip
 
 compilation:

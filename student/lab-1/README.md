@@ -32,8 +32,8 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/credhub.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
-    -v internal_cidr=10.0.0.0/20 \
-    -v internal_gw=10.0.0.1 \
+    -v internal_cidr=10.165.0.0/24 \
+    -v internal_gw=10.165.0.1 \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
     -v project_id=bosh-operator-class \
@@ -52,7 +52,7 @@ addresses you'll use for the labs.
 This command sets the environment variables in your SSH session.
 
 ```
-export MY_INTERNAL_IP=10.0.0.6
+export MY_INTERNAL_IP=10.165.0.10
 export MY_EXTERNAL_IP=35.196.19.152
 ```
 
@@ -73,7 +73,7 @@ $ ./create-env.sh
 
 ### Result
 
-What happens when we run this script?  Look at the error message for clues.
+NOTE: What happens as we deploy bosh?  What does each stage of the process mean?
 
 ## Authentication
 
@@ -138,7 +138,7 @@ $ bosh login
 
 We are now logged into the director.
 
-## Team Time
+## Team Up
 
 We're going to break into teams at this time.
 
@@ -151,6 +151,8 @@ and we have one in our repo here to get us started.
 
 First team to get all their teammates to deploy the BOSH release, wins 10
 points.  At the end of the workshop we have a prize for the winning team!
+
+
 
 [bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
 [zookeeper-release]: https://github.com/cppforlife/zookeeper-release
