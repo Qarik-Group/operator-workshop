@@ -39,7 +39,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v project_id=bosh-operator-class \
     -v zone=us-east1-c \
     -v tags=[internal] \
-    -v network=student \
+    -v network=default \
     -v subnetwork=$MY_SUBNET \
     -v external_ip=$MY_EXTERNAL_IP
 ```
@@ -148,7 +148,7 @@ BONUS: How could you do a `bosh login` with something like a
 ## Cloud Config
 
 In order to deploy, BOSH needs default configuration for the cloud it's working
-with.  The [bosh-deployment][bosh-deployment-cloud-config] repo has example
+with.  The [bosh-deployment][cloud-config] repo has example
 cloud-configs for each cloud.
 
 We have one prepared in our `lab-1` folder here.  Take a look at it now.
@@ -172,7 +172,9 @@ You need to deploy a "hello world" BOSH release.  We recommended the
 First team to get all their teammates to deploy the BOSH release, wins 10
 points.  At the end of the workshop we have a prize for the winning team!
 
-[bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
+[//]: # (Links)
+
+[cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
 [zookeeper-release]: https://github.com/cppforlife/zookeeper-release
 [mind-blown]: https://github.com/starkandwayne/operator-workshop/raw/master/images/mind-blown.gif "Mind Blown"
 [lab-2]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-2

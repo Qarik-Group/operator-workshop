@@ -66,5 +66,7 @@ to use the command.
 $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
 ```
 
+[//]: # (Links)
+
 [stemcell-page]: http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
 [lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
