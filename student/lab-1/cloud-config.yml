@@ -40,8 +40,6 @@ networks:
       subnetwork_name: ((subnetwork_name))
       ephemeral_external_ip: true
       tags: [internal, concourse]
-  name: vip
-  type: vip
 
 compilation:
   workers: 5
