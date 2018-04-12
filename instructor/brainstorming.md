@@ -14,15 +14,13 @@ Why would they need to delete an environment?  Have them come up with use-cases.
 
 This could also be a good way for them to start to explore more about using the bosh command line and getting "help" for finding command line "commands."
 
+how-to-recover
+
 If you lose the state file it can be recovered only if you can determine specific
 variables from your infrastructure and regenerate it by using the `create-env`
 command.
 https://bosh.io/docs/cli-envs.html#recover-deployment-state
 
+how-to-fix-service-account
 
-10.165.0.0 workspace
-
-10.165.1.0/24 .. x students up to 250ish students
-
-
-if too many keys get generated: https://console.cloud.google.com/iam-admin/serviceaccounts/project and delete keys
+If too many keys get generated: https://console.cloud.google.com/iam-admin/serviceaccounts/project and delete keys

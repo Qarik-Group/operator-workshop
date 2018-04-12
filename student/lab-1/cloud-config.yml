@@ -28,7 +28,7 @@ disk_types:
   disk_size: 50_000
 
 networks:
-- name: default
+- name: student
   type: manual
   subnets:
   - range: ((internal_cidr))
@@ -36,8 +36,8 @@ networks:
     azs: [z1, z2, z3]
     dns: [8.8.8.8]
     cloud_properties:
-      network_name: default
-      subnetwork_name: default
+      network_name: student
+      subnetwork_name: ((subnetwork_name))
       ephemeral_external_ip: true
       tags: [internal, concourse]
   name: vip
