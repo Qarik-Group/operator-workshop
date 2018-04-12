@@ -37,7 +37,7 @@ If for any reason the key is lost, the middle command `gcloud iam service-accoun
 
 ### Ready
 
-The student is now ready to begin lab-1.
+The student is now ready to begin student [lab-1][lab-1].
 
 ## Team Time Cheat Sheet
 
@@ -76,3 +76,4 @@ $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty
 ```
 
 [stemcell-page]: http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
+[lab-1]: [lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1

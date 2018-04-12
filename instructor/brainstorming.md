@@ -23,3 +23,6 @@ https://bosh.io/docs/cli-envs.html#recover-deployment-state
 10.165.0.0 workspace
 
 10.165.1.0/24 .. x students up to 250ish students
+
+
+if too many keys get generated: https://console.cloud.google.com/iam-admin/serviceaccounts/project and delete keys

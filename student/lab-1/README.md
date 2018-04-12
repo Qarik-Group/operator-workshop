@@ -10,7 +10,7 @@ amirite?
 
 ### Create Environment
 
-1. Let's create a `create-env.sh` file.  
+1. Let's create a `create-env.sh` file in your `lab-1` folder.
 
 We do this because many times when we need to create a BOSH director we will
 need to run or re-run this command.  And it's good to have it in a script.
@@ -32,8 +32,8 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/credhub.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
-    -v internal_cidr=10.165.0.0/24 \
-    -v internal_gw=10.165.0.1 \
+    -v internal_cidr=10.42.1.0/24 \
+    -v internal_gw=10.42.1.1 \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
     -v project_id=bosh-operator-class \
@@ -46,17 +46,18 @@ bosh create-env bosh-deployment/bosh.yml \
 
 2. Set an `external_ip` value.
 
-Before running the `create-env.sh` script see your student worksheet for the IP
-addresses you'll use for the labs.
+Before running the `create-env.sh` script see your student worksheet for your
+X = to your Student ID, and the IP addresses you'll use for the labs.
 
-This command sets the environment variables in your SSH session.
+These commands set the environment variables for your IP addresses in your
+SSH session.
 
 ```
-export MY_INTERNAL_IP=10.165.0.10
+export MY_INTERNAL_IP=10.42.1.10
 export MY_EXTERNAL_IP=35.196.19.152
 ```
 
-3. Clone the `bosh-deployment` repo to this folder.
+3. Now you'll clone the `bosh-deployment` repo to this folder.
 
 ```
 $ git clone https://github.com/cloudfoundry/bosh-deployment
@@ -157,3 +158,4 @@ points.  At the end of the workshop we have a prize for the winning team!
 [bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
 [zookeeper-release]: https://github.com/cppforlife/zookeeper-release
 [mind-blown]: https://github.com/starkandwayne/operator-workshop/raw/master/images/mind-blown.gif "Mind Blown"
+[lab-2]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-2
