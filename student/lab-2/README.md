@@ -45,7 +45,79 @@ $ bosh <command> --help
 Another thing that's great with each command, is that a direct link to
 the https://bosh.io/docs/cli-v2 docs at the top.
 
-### Change
+## BOSH-lite
+
+### Delete Director
+
+Still in `~/operator-workshop/student/lab-1` let's create a `delete-env.sh` command.
+
+```
+$ cp create-env.sh delete-env.sh
+```
+
+Edit the file with `vi` and change the command from `create-env` to
+`delete-env`.  This will let the BOSH command-line clean up the files
+from the cloud and local file system.
+
+
+
+```
+$ ./delete-env.sh
+```
+
+It's time to switch directories to lab-2.
+
+```
+$ cd ~/operator-workshop/student/lab-2
+```
+
+### Create BOSH-lite
+
+```
+#!/usr/bin/env bash
+
+set -eu
+
+bosh create-env bosh-deployment/bosh.yml \
+    --state=state.json \
+    --vars-store=creds.yml \
+    -o bosh-deployment/gcp/cpi.yml \
+    -o bosh-deployment/uaa.yml \
+    -o bosh-deployment/credhub.yml \
+    -o bosh-deployment/external-ip-not-recommended.yml \
+    -o bosh-deployment/bosh-lite.yml \
+    -o bosh-deployment/bosh-lite-runc.yml \
+    -o bosh-deployment/gcp/bosh-lite-vm-type.yml \
+    -o /ip-forwarding.yml    
+    -v director_name=bosh-director \
+    -v internal_cidr=$MY_CIDR \
+    -v internal_gw=$MY_GW \
+    -v internal_ip=$MY_INTERNAL_IP \
+    --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
+    -v project_id=bosh-operator-class \
+    -v zone=us-east1-c \
+    -v tags=[internal] \
+    -v network=default \
+    -v subnetwork=$MY_SUBNET \
+    -v external_ip=$MY_EXTERNAL_IP
+```
+
+Ensure environment variables are there.
+
+```
+export MY_CIDR=10.42.1.0/24
+export MY_GW=10.42.1.1
+export MY_INTERNAL_IP=10.42.1.10
+export MY_EXTERNAL_IP=35.196.19.152
+export MY_SUBNET=student-1
+```
+
+chmod and run
+
+```
+$ sudo chmod +x create-env.sh
+$ ./create-env.sh
+```
 
 [//]: # (Links)
 
