@@ -32,15 +32,6 @@ Run `bosh` with no commands to see a list.
 
 ```
 $ bosh
-Please specify one command of: add-blob, alias-env, attach-disk, blobs, cancel-task, clean-up, cloud-check, cloud-config, c
-onfig, configs, cpi-config, create-env, create-release, delete-config, delete-deployment, delete-disk, delete-env, delete-r
-elease, delete-snapshot, delete-snapshots, delete-stemcell, delete-vm, deploy, deployment, deployments, diff-config, disks,
- environment, environments, errands, event, events, export-release, finalize-release, generate-job, generate-package, help,
- ignore, init-release, inspect-release, instances, interpolate, locks, log-in, log-out, logs, manifest, orphan-disk, recrea
-te, releases, remove-blob, repack-stemcell, reset-release, restart, run-errand, runtime-config, scp, snapshots, ssh, start,
- stemcells, stop, sync-blobs, take-snapshot, task, tasks, unignore, update-cloud-config, update-config, update-cpi-config,
-update-resurrection, update-runtime-config, upload-blobs, upload-release, upload-stemcell, variables, vendor-package or vms
-Exit code 1
 ```
 
 Read through the list of commands to find something that will remove or delete a deployment.
