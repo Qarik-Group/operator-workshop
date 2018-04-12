@@ -159,7 +159,7 @@ the `bosh update-cloud-config` command.
 Yet we're going to want to pass in some variables like this:
 
 ```
-$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW
+$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
 ```
 
 ## Team Up
