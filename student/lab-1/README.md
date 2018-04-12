@@ -32,15 +32,15 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/credhub.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
-    -v internal_cidr=10.42.1.0/24 \
-    -v internal_gw=10.42.1.1 \
+    -v internal_cidr=$MY_CIDR \
+    -v internal_gw=$MY_GW \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
     -v project_id=bosh-operator-class \
     -v zone=us-east1-c \
     -v tags=[internal] \
     -v network=student \
-    -v subnetwork=student-1 \
+    -v subnetwork=$MY_SUBNET \
     -v external_ip=$MY_EXTERNAL_IP
 ```
 
@@ -53,8 +53,11 @@ These commands set the environment variables for your IP addresses in your
 SSH session.
 
 ```
+export MY_CIDR=10.42.1.0/24
+export MY_GW=10.42.1.1
 export MY_INTERNAL_IP=10.42.1.10
 export MY_EXTERNAL_IP=35.196.19.152
+export MY_SUBNET=student-1
 ```
 
 3. Now you'll clone the `bosh-deployment` repo to this folder.
@@ -142,16 +145,29 @@ We are now logged into the director.
 BONUS: How could you do a `bosh login` with something like a
 `bosh int creds.yml --path /admin_password` to make a one-line login?
 
+## Cloud Config
+
+In order to deploy, BOSH needs default configuration for the cloud it's working
+with.  The [bosh-deployment][bosh-deployment-cloud-config] repo has example
+cloud-configs for each cloud.
+
+We have one prepared in our `lab-1` folder here.  Take a look at it now.
+
+In order to set this configuration on our newly created BOSH director, we use
+the `bosh update-cloud-config` command.
+
+Yet we're going to want to pass in some variables like this:
+
+```
+$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW
+```
+
 ## Team Up
 
 We're going to break into teams at this time.
 
 You need to deploy a "hello world" BOSH release.  We recommended the
 [zookeeper-release][zookeeper-release] for BOSH.
-
-Every cloud needs a default **cloud-config** to begin.  The
-[bosh-deployment][bosh-deployment-cloud-config] repo has example cloud-configs,
-and we have one in our repo here to get us started.
 
 First team to get all their teammates to deploy the BOSH release, wins 10
 points.  At the end of the workshop we have a prize for the winning team!

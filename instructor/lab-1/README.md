@@ -41,25 +41,16 @@ The student is now ready to begin student [lab-1][lab-1].
 
 ## Team Time Cheat Sheet
 
-A hard-coded cloud-config is available in the student lab-1 ready to go. The
-user will have to change their subnet range in the `cloud-config.yml`, where
-`1` is their student ID:
-
-```
-- range: 10.42.x.0/24
-- range: 10.42.1.0/24
-```
-
 ### Release Steps
 
 Then these commands would be able to help them do a deploy.
 
-1. Configure and update cloud-config.
+1. Ensure users have updated cloud-config.
 2. Clone the repo.
 3. Deploy bosh release.
 
 ```
-$ bosh update-cloud-config ~/operator-workshop/student/lab-1/cloud-config.yml
+
 $ git clone https://github.com/cppforlife/zookeeper-release.git
 $ cd zookeeper-release
 $ bosh -d zookeeper deploy manifests/zookeeper.yml
@@ -76,4 +67,4 @@ $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty
 ```
 
 [stemcell-page]: http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
-[lab-1]: [lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
+[lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
