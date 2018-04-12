@@ -32,15 +32,15 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/credhub.yml \
     -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
-    -v internal_cidr=10.42.1.0/24 \
-    -v internal_gw=10.42.1.1 \
+    -v internal_cidr=10.0.0.0/24 \
+    -v internal_gw=10.0.0.1 \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
     -v project_id=bosh-operator-class \
     -v zone=us-east1-c \
     -v tags=[internal] \
-    -v network=default \
-    -v subnetwork=default \
+    -v network=student \
+    -v subnetwork=student-subnet \
     -v external_ip=$MY_EXTERNAL_IP
 ```
 
@@ -53,7 +53,7 @@ These commands set the environment variables for your IP addresses in your
 SSH session.
 
 ```
-export MY_INTERNAL_IP=10.42.1.10
+export MY_INTERNAL_IP=10.0.0.10
 export MY_EXTERNAL_IP=35.196.19.152
 ```
 
