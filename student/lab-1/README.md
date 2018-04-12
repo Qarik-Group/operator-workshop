@@ -40,7 +40,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v zone=us-east1-c \
     -v tags=[internal] \
     -v network=student \
-    -v subnetwork=student-subnet1 \
+    -v subnetwork=student-1 \
     -v external_ip=$MY_EXTERNAL_IP
 ```
 
@@ -89,7 +89,7 @@ An alias creates a shortcut that saves the additional connection parameters to a
 In the same folder we ran the `create-env.sh`, we'd create an `alias-env` command like so:
 
 ```
-$ bosh alias-env bosh-director -e 35.196.19.152 --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
+$ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
 ```
 
 ### Using Environments
@@ -139,6 +139,9 @@ $ bosh login
 
 We are now logged into the director.
 
+BONUS: How could you do a `bosh login` with something like a
+`bosh int creds.yml --path /admin_password` to make a one-line login?
+
 ## Team Up
 
 We're going to break into teams at this time.
@@ -152,8 +155,6 @@ and we have one in our repo here to get us started.
 
 First team to get all their teammates to deploy the BOSH release, wins 10
 points.  At the end of the workshop we have a prize for the winning team!
-
-
 
 [bosh-deployment-cloud-config]: https://github.com/cloudfoundry/bosh-deployment#ops-files
 [zookeeper-release]: https://github.com/cppforlife/zookeeper-release
