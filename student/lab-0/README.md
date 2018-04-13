@@ -16,7 +16,7 @@ https://console.cloud.google.com.
 can see the [Project info][identifying_projects] says **Project Name** of
 "bosh-operator-class".
 
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png" width="595" height="215" title="SSH Button">
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png" width="793" height="287" title="SSH Button">
 
 2. Click on the [SSH button][ssh-button] to connect to the **student-workspace**
 server.
