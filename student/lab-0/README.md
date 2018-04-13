@@ -8,11 +8,11 @@
 
 ## Confirm Project Access
 
-![bosh-operator-class][bosh-operator-class]
+![bosh-operator-class][bosh-operator-class] <!-- .element height="50%" width="50%" -->
 
 1. You can confirm you have access when you have logged into Google Cloud and can see the [Project info][identifying_projects] says **Project Name** of "bosh-operator-class".
 
-![ssh-button][ssh-button]
+![ssh-button-img][ssh-button-img] <!-- .element height="50%" width="50%" -->
 
 2. Click on the [SSH button][ssh-button] to connect to the **student-workspace** server.
 
@@ -31,7 +31,7 @@ You are now ready to run [lab 1][lab-1].  There will be some discussion first an
 [//]: # (Pictures)
 
 [bosh-operator-class]: https://github.com/starkandwayne/operator-workshop/raw/master/images/bosh-operator-class.png "BOSH Operator Class"
-[ssh-button]: https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png "SSH Button"
+[ssh-button-img]: https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png "SSH Button"
 
 [//]: # (Links)
 
