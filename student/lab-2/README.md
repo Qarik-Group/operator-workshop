@@ -32,6 +32,8 @@ running in our deployment:
 $ bosh -d zookeeper vms
 ```
 
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-google.png" width="1050" height="258" title="Zookeeper VMS on Google">
+
 ### Remove
 
 We are going to remove our hello world deployment.  Yet what command will we use?
