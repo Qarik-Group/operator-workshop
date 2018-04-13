@@ -1,5 +1,7 @@
 # lab-2
 
+![welcome-back][welcome-back]
+
 What happened in zookeeper?
 
 ```
@@ -117,6 +119,11 @@ $ sudo chmod +x create-env.sh
 $ ./create-env.sh
 ```
 
+[//]: # (Pictures)
+
+[welcome-back]: https://github.com/starkandwayne/operator-workshop/raw/master/images/welcome-back.gif "Welcome Back"
+
 [//]: # (Links)
 
 [canary]: https://bosh.io/docs/terminology.html#canary
+[lab-3]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-3

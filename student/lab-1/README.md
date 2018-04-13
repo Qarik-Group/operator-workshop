@@ -123,7 +123,7 @@ our external IP and can supply our SSL certificate.
 
 ### Login to BOSH
 
-When we created the bosh-director, it generated a default password for us.
+When we created the BOSH director, it generated a default password for us.
 This is configured in the `--vars-store=creds.yml` flag during the
 `create-env` command.
 
@@ -210,6 +210,7 @@ First team to get all their teammates to deploy the BOSH release, wins 10
 points.  At the end of the workshop we have a prize for the team with the
 most points!
 
+When you're ready for the next lab, head on over to [lab-2][lab-2].
 
 [//]: # (Pictures)
 
