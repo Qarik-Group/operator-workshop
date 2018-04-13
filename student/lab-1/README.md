@@ -175,6 +175,8 @@ software on the infrastructure.
 The [bosh-deployment][cloud-config] repo has example `cloud-configs` for
 each major cloud like AWS, GCP, Azure, and so on.
 
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/simple-cloud-config.png" width="888" height="176" title="Simple Cloud Config">
+
 Our `cloud-config.yml` is prepared for Google Cloud and our class in this `lab-1` folder.  Take a look at it now.
 
 In order to set this configuration on our newly created BOSH director, we use
