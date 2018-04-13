@@ -65,14 +65,21 @@ bosh create-env bosh-deployment/bosh.yml \
     -v external_ip=$MY_EXTERNAL_IP
 ```
 
-We do this because many times when we need to create a BOSH director we will
-need to run or re-run this command.  And it's good to have it in a script.
+To save a file with `vi`, hit the `ESC` key and then type `:wq` and ENTER.
 
-This provides you with the ability to document what settings are used for your
-deployment, and to re-use the `create-env` command when performing updates to
-the BOSH director at a later time.
+If you have any problems getting this file created and saved please get help
+from an instructor on-site.
 
-3. Now you'll clone the `bosh-deployment` repo to this folder.
+Why do we create this file?  Because many times we don't just need to create a
+BOSH director once, but we may need to run or re-run the command because we
+may be missing a dependency or two, and so it's good to have it in a script.
+
+Also, this provides you with the ability to document what settings were used
+when your deployed your BOSH director.  OR if you need to add something new
+to your existing BOSH director, it's already correctly configured and ready
+to go.
+
+3. Now we'll clone the `bosh-deployment` repo to this folder.
 
 ```
 $ git clone https://github.com/cloudfoundry/bosh-deployment
