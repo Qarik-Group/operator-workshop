@@ -1,8 +1,10 @@
 # lab-2
 
-![welcome-back][welcome-back]
+Meanwhile, back at the ranch.
 
-What happened in zookeeper?
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/welcome-back.gif" width="239" height="246" title="Welcome Back">
+
+So, what happened in zookeeper when we deployed?
 
 ```
 Task 5 | 15:16:05 | Updating instance zookeeper: zookeeper/b9cb899e-d37a-4e94-81e1-b43d3368bf27 (0) (canary) (00:00:51)
@@ -12,15 +14,19 @@ What is a [canary][canary]?
 
 ## Deployments
 
+We're going to look at the "Hello World" deployment with some `bosh` commands.
+
 ### View
 
-Let's look at the zookeeper deployment we've got running.
+Here's how we look at the zookeeper deployment.  First, if we've forgotten the
+name of the deployment we can get a list of all deployments like this.
 
 ```
 $ bosh deployments
 ```
 
-We can see what virtual machines are running from this deployment like this:
+Then with the name of the deployment we can see what virtual machines are
+running in our deployment:
 
 ```
 $ bosh -d zookeeper vms
@@ -121,7 +127,7 @@ $ ./create-env.sh
 
 [//]: # (Pictures)
 
-[welcome-back]: https://github.com/starkandwayne/operator-workshop/raw/master/images/welcome-back.gif "Welcome Back"
+
 
 [//]: # (Links)
 
