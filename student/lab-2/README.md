@@ -10,7 +10,6 @@ What is a [canary][canary]?
 
 ## Deployments
 
-
 ### View
 
 Let's look at the zookeeper deployment we've got running.
@@ -27,8 +26,9 @@ $ bosh -d zookeeper vms
 
 ### Remove
 
-We are going to remove our hello world deployment.  Yet what command will we use?  Let's talk about a technique we can use to find commands.
-Run `bosh` with no commands to see a list.
+We are going to remove our hello world deployment.  Yet what command will we use?
+Let's talk about a technique we can use to find commands. Run `bosh` with no
+commands to see a list.
 
 ```
 $ bosh
@@ -58,8 +58,6 @@ $ cp create-env.sh delete-env.sh
 Edit the file with `vi` and change the command from `create-env` to
 `delete-env`.  This will let the BOSH command-line clean up the files
 from the cloud and local file system.
-
-
 
 ```
 $ ./delete-env.sh

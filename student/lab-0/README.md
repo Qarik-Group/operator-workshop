@@ -8,16 +8,18 @@
 
 ## Confirm Project Access
 
+![bosh-operator-class][bosh-operator-class]
+
 1. You can confirm you have access when you have logged into Google Cloud and can see the [Project info][identifying_projects] says **Project Name** of "bosh-operator-class".
 
-2. Next, sign in to your Google Account, and click on the [SSH button][ssh-button] to connect to the **student-workspace** server.
+![ssh-button][ssh-button]
 
-3. Clone this repo in your home folder and update submodules:
+2. Click on the [SSH button][ssh-button] to connect to the **student-workspace** server.
+
+3. Clone this repo:
 
 ```
 $ git clone https://github.com/starkandwayne/operator-workshop.git
-$ cd operator-workshop
-$ git submodule update --init --recursive
 ```
 
 This copies all our labs down to your folder on the **student-workspace** server.  We use a VM running on the target infrastructure because this gives us a common denominator for each of us who might be using different computer platforms to use this workshop (Windows, Mac, Linux).
@@ -25,6 +27,13 @@ This copies all our labs down to your folder on the **student-workspace** server
 ## Ready
 
 You are now ready to run [lab 1][lab-1].  There will be some discussion first and then we'll jump right in.
+
+[//]: # (Pictures)
+
+[bosh-operator-class]: https://github.com/starkandwayne/operator-workshop/raw/master/images/bosh-operator-class.png "BOSH Operator Class"
+[ssh-button]: https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png "SSH Button"
+
+[//]: # (Links)
 
 [instructor_email]: <mailto:tbird@starkandwayne.com>
 [identifying_projects]: https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects

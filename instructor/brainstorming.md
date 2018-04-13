@@ -1,26 +1,32 @@
-with one instructor and two teacher's assistant's
-
-break the students into two groups
-
-team wayne
-team stark
-
-when there are times to do the jigsaw technique my mom was talking about.
-
-This is when there are times to let the groups individually figure out how to do something.
-
-Maybe I let them figure out how to create a "delete-environment" task?
-Why would they need to delete an environment?  Have them come up with use-cases.
-
-This could also be a good way for them to start to explore more about using the bosh command line and getting "help" for finding command line "commands."
-
-how-to-recover
+### how-to-recover
 
 If you lose the state file it can be recovered only if you can determine specific
 variables from your infrastructure and regenerate it by using the `create-env`
 command.
 https://bosh.io/docs/cli-envs.html#recover-deployment-state
 
-how-to-fix-service-account
+### how-to-fix-service-account
 
 If too many keys get generated: https://console.cloud.google.com/iam-admin/serviceaccounts/project and delete keys
+
+### good-things-tested
+
+I can just add people to the project.  That was good to know.
+good networking
+up quota
+
+### big-picture
+
+more beginner
+more advanced
+
+more interested
+less interested
+
+I want to make people more interested and more prepared for BOSH.
+
+### abstract-items
+
+build up what it takes to make a VM on a cloud
+
+what do you have to do to maintain that vm?
