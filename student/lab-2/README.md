@@ -34,32 +34,42 @@ $ bosh -d zookeeper vms
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-google.png" width="700" height="172" title="Zookeeper VMS on Google">
 
-### Remove
+Notice the IP addresses are all in our internal student subnet of `10.42.1.0/24.`
 
-We are going to remove our hello world deployment.  Yet what command will we use?
-Let's talk about a technique we can use to find commands. Run `bosh` with no
-commands to see a list.
+## Delete Deployment
+
+We want to remove the Google Cloud deployment to make room for a BOSH-lite
+deployment next.  
+
+### Teams Exercise
+
+To delete our "Hello World" deployment, what command will we use? Let's talk
+about a technique we can use to find commands. Run `bosh` with no sub-command
+to see a list of available sub-commands.
 
 ```
 $ bosh
 ```
 
-Read through the list of commands to find something that will remove or delete a deployment.
+Read through the list of sub-commands to find something that will remove or
+delete a deployment.
 
-Once you have a command then run this command to get additional help for that command:
+Once you have a command to try then run this command to get additional help:
 
 ```
 $ bosh <command> --help
 ```
 
-Another thing that's great with each command, is that a direct link to
-the https://bosh.io/docs/cli-v2 docs at the top.
+Another thing that's great with each command, is that a direct link to docs is
+at the top: https://bosh.io/docs/cli-v2
 
 ## BOSH-lite
 
 ### Delete Director
 
-Still in `~/operator-workshop/student/lab-1` let's create a `delete-env.sh` command.
+1. Ensure we're still in `~/operator-workshop/student/lab-1` folder.
+
+2. Let's create a `delete-env.sh` command.
 
 ```
 $ cp create-env.sh delete-env.sh
@@ -73,13 +83,28 @@ from the cloud and local file system.
 $ ./delete-env.sh
 ```
 
-It's time to switch directories to lab-2.
+NOTE: Are any files left behind?  Why?
+
+Now that we've deleted the deployment and the director we're ready to create
+a BOSH-lite.
+
+### Create BOSH-lite
+
+3. Change to the lab-2 folder to create a BOSH-lite `create-env.sh` file.
 
 ```
 $ cd ~/operator-workshop/student/lab-2
 ```
 
-### Create BOSH-lite
+4. Using `vi` let's create another `create-env.sh` file, this time with
+additional operator files and variables that will help us setup a BOSH-lite
+environment on Google Cloud.
+
+```
+$ vi create-env.sh
+```
+
+In `vi` press `i` to begin "insert mode" and then, copy and paste the following:
 
 ```
 #!/usr/bin/env bash
@@ -110,7 +135,16 @@ bosh create-env bosh-deployment/bosh.yml \
     -v external_ip=$MY_EXTERNAL_IP
 ```
 
-Ensure environment variables are there.
+Hit `ESC`, type `:wq` to save the contents of the file.
+
+5. Ensure environment variables are in your SSH session, you can use the `env`
+command and grep for `MY`.
+
+```
+$ env | grep MY
+```
+
+If they are not there, make sure to export them again.
 
 ```
 export MY_CIDR=10.42.1.0/24
@@ -120,7 +154,8 @@ export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 ```
 
-chmod and run
+6. Give your command executable permissions and run the command to create your
+BOSH-lite director.
 
 ```
 $ sudo chmod +x create-env.sh
