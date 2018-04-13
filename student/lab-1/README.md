@@ -12,7 +12,8 @@ amirite?
 
 1. Set environment variables.
 
-Each of you will have received a card with the values to the environment variables below.  If not, contact an instructor now.
+Each of you will have received a card with the values to the environment
+variables below.  If not, contact an instructor now.
 
 Copy these environment variables to a scratch text file on your
 computer, as we may need to use them more than once during the lab.
@@ -87,7 +88,8 @@ $ git clone https://github.com/cloudfoundry/bosh-deployment
 
 This provides us with the software we need to deploy BOSH.
 
-4. We're now ready to run the `create-env.sh` script and use bosh to deploy a bosh-director.
+4. We're now ready to run the `create-env.sh` script and use `bosh` to deploy a
+bosh-director.
 
 ```
 $ sudo chmod +x create-env.sh
@@ -100,7 +102,9 @@ NOTE: What happens as we deploy bosh?  What does each stage of the process mean?
 
 ## Authentication
 
-Before we can do more with our BOSH director, we need to sign into it.  And during the deployment process, a default password was generated in our `lab-1` folder in the `creds.yml` file.
+Before we can do more with our BOSH director, we need to sign into it.  And
+during the deployment process, a default password was generated in our `lab-1`
+folder in the `creds.yml` file.
 
 Here's the process used to sign into a BOSH director.
 
@@ -116,6 +120,36 @@ $ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int creds.yml
 
 Now we have an environment alias called `bosh-director` that points to
 our external IP and can supply our SSL certificate.
+
+### Login to BOSH
+
+When we created the bosh-director, it generated a default password for us.
+This is configured in the `--vars-store=creds.yml` flag during the
+`create-env` command.
+
+Therefore we can look at the `creds.yml` file, for what password was
+generated.
+
+```
+$ less creds.yml
+```
+
+To login to the BOSH director, copy the value from `admin_password:` from
+the `creds.yml`.  Then run this `bosh` command:
+
+```
+$ bosh login
+```
+
+We should now be authenticated to the BOSH director.  Please raise your hand and
+get help from an instructor if you need assistance with this.  Thank you!
+
+### Result
+
+We are now logged into the director.
+
+BONUS: How could you do a `bosh login` with something like a
+`bosh int creds.yml --path /admin_password` to make a one-line login?
 
 ### Using Environments
 
@@ -143,35 +177,6 @@ export BOSH_ENVIRONMENT=bosh-director
 ```
 
 NOTE: How do you check what your environment is set to?
-
-### Login to BOSH
-
-When we created the bosh-director, it generated a default password for us.
-This is configured in the `--vars-store=creds.yml` flag during the
-`create-env` command.
-
-Therefore we can look at the `creds.yml` file, for what password was
-generated.
-
-```
-$ less creds.yml
-```
-
-To login to the BOSH director, copy the value from `admin_password:` from
-the `creds.yml`.  Then run this `bosh` command:
-
-```
-$ bosh login
-```
-
-We should now be authenticated to the BOSH director.  Please raise your hand and get help from an instructor if you need assistance with this.  Thank you!
-
-### Result
-
-We are now logged into the director.
-
-BONUS: How could you do a `bosh login` with something like a
-`bosh int creds.yml --path /admin_password` to make a one-line login?
 
 ## Cloud Config
 

@@ -5,15 +5,12 @@ variables from your infrastructure and regenerate it by using the `create-env`
 command.
 https://bosh.io/docs/cli-envs.html#recover-deployment-state
 
-### how-to-fix-service-account
-
-If too many keys get generated: https://console.cloud.google.com/iam-admin/serviceaccounts/project and delete keys
-
 ### good-things-tested
 
 I can just add people to the project.  That was good to know.
-good networking
-up quota
+
+  * good networking architecture
+  * up the quotas of cpus or reconfigure the vpcs to be in different regions
 
 ### big-picture
 
