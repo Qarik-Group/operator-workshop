@@ -220,8 +220,12 @@ the first BOSH director, you'll get an error like this:
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
 
+## Team UP
 
-Now do the deploy.
+What's going on with not being able to upload a stemcell?  Did we miss a step?
+What step did we miss and what do we need to do?
+
+Figure out why we can't upload the stemcell and get zookeeper deployed again.
 
 ```
 $ git clone https://github.com/cppforlife/zookeeper-release.git
@@ -229,11 +233,13 @@ $ cd zookeeper-release
 $ bosh -d zookeeper deploy manifests/zookeeper.yml
 ```
 
+Points to the team done first.
 
+### Result
 
-[//]: # (Pictures)
+the result of deployment pic goes here.
 
-
+On the next [lab-3][lab-3] we deploy Cloud Foundry to BOSH-lite!
 
 [//]: # (Links)
 
