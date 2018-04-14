@@ -1,4 +1,4 @@
-# lab 1
+# lab-1
 
 ## Before lab-1
 
