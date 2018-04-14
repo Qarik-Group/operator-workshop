@@ -67,7 +67,7 @@ then do the upload stemcell ...
 ... successful deploy
 ```
 
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/success.png" width="342" height="249" title="Success">
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/success.jpg" width="342" height="249" title="Success">
 
 ### Stemcell
 
