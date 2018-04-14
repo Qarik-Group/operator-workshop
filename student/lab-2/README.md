@@ -191,6 +191,7 @@ $ sudo chmod +x create-env.sh
 $ ./create-env.sh
 ```
 
+## BOSH-lite Cloud Config
 
 Once that has finished, there is a new cloud config because the new cloud are
 containers instead of virtual machines.  Once again we have an example in this
@@ -200,20 +201,13 @@ containers instead of virtual machines.  Once again we have an example in this
 $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
 ```
 
-Test deploy zookeeper to the BOSH-lite.  Yet we need to upload the container
-stemcell instead of the Google stemcell.
-
-Google Stemcell looks like this:
-
-```
-$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
-```
-
-And the container stemcell looks like this, upload this stemcell.
+And we need the container stemcell instead of the Google Cloud stemcell.
 
 ```
 $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
 ```
+
+### Error
 
 Unfortunately, if you're still in the SSH session used from before to create
 the first BOSH director, you'll get an error like this:
@@ -229,8 +223,7 @@ Figure out why we can't upload the stemcell and get zookeeper deployed again.
 
 ```
 $ git clone https://github.com/cppforlife/zookeeper-release.git
-$ cd zookeeper-release
-$ bosh -d zookeeper deploy manifests/zookeeper.yml
+$ bosh -d zookeeper deploy zookeeper-release/manifests/zookeeper.yml
 ```
 
 10 points to the team done first.

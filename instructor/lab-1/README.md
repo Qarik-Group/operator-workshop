@@ -51,13 +51,22 @@ The student is now ready to begin student [lab-1][lab-1].
 
 ## Team Up Cheat Sheet
 
-### Release Steps
+The zookeeper deploy time takes about 10 minutes.
 
-Then these commands would be able to help them do a deploy.
+```
+Task 3 Started  Sat Apr 14 16:48:40 UTC 2018
+Task 3 Finished Sat Apr 14 16:58:59 UTC 2018
+```
+
+### Deploy Steps
+
+Here's the steps users need to be walked through:
 
 1. Ensure users have updated cloud-config.
 2. Clone the repo.
-3. Deploy bosh release.
+3. Fail bosh deploy.
+4. Upload stemcell.
+5. Success bosh deploy.
 
 ```
 $ git clone https://github.com/cppforlife/zookeeper-release.git
@@ -78,8 +87,15 @@ to use the command.
 $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
 ```
 
+[lab-2][lab-2] awaits.
+
 [//]: # (Links)
 
 [stemcell-page]: http://bosh.cloudfoundry.org/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
 [lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
+[lab-2]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-2
 [service-account]: https://console.cloud.google.com/iam-admin/serviceaccounts/project
+
+
+Task 3 Started  Sat Apr 14 16:48:40 UTC 2018
+Task 3 Finished Sat Apr 14 16:58:59 UTC 2018

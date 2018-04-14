@@ -211,7 +211,7 @@ $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v interna
 ## Team Up
 
 At this time, we're going to break into teams, and your goal will be to
-deploy a "hello world" BOSH release.  We recommended the
+deploy a "Hello World" BOSH release.  We recommended the
 [zookeeper-release][zookeeper-release] for BOSH.
 
 First team to get all their teammates to deploy the BOSH release, wins 10
