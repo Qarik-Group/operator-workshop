@@ -3,8 +3,7 @@
 BOSH was created to deploy Cloud Foundry.  Our next steps will be to deploy
 Cloud Foundry to containers running on our BOSH-lite director.
 
-
-## Pick Correct Stemcell
+## How to Choose a Stemcell
 
 When you need to deploy any release, you may need to figure out what is the right stemcell to use.  Here's a good technique to use.
 
@@ -38,13 +37,19 @@ $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-t
 
 We are going to deploy Cloud Foundry together to our BOSH-lite director.
 
-1. Create a `deploy-cf.sh` file.
+1. Make sure we are in our `lab-3` folder.
+
+```
+$ cd ~/operator-workshop/student/lab-3
+```
+
+2. Create a `deploy-cf.sh` file.
 
 ```
 $ vi deploy-cf.sh
 ```
 
-Insert into the file, this content:
+3. Insert into the file, this content:
 
 ```
 #!/usr/bin/env bash
@@ -58,7 +63,7 @@ bosh -d cf deploy cf-deployment/cf-deployment.yml \
     -o cf-deployment/operations/use-compiled-releases.yml
 ```
 
-We'll need the `cf-deployment` git repository.
+4. We'll need the `cf-deployment` git repository.
 
 ```
 $ git clone https://github.com/cloudfoundry/cf-deployment.git
