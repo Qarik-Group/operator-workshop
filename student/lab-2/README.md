@@ -230,25 +230,37 @@ It's time to team up again!  Figure out what we need to do so we can deploy the
 
 10 points to the team done first.
 
-### Result
+## BOSH-lite Review
 
-Tell the story of how we've deployed to containers now.
+Now we have completed our deployment of zookeeper again, we can use the
+`bosh vms` command to review what instances are running in our deployment.
 
-And we're using one host virtual machine on Google Cloud as our BOSH-lite
-yet inside, it's deploying containers.
+```
+$ bosh -d zookeeper vms
+```
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/lab-2-container-results.png" width="746" height="285" title="Lab 1 VM Results">
 
-That the IP addresses of the containers are in our internal cloud of
-`10.244.0.0/20`.
+And the IP addresses are different from our cloud IP addresses of `10.42.X.0/24`
+before and are now on a `10.244.0.0/20` as configured in our
+`lab-2/cloud-config.yml` file.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-warden.png" width="700" height="172" title="Zookeeper VMS on Warden">
 
-Well done.
+To get ready to install Cloud Foundry on our BOSH-lite, let's make room for it
+by deleting our "Hello World" deploy again.
+
+```
+$ bosh -d zookeeper delete-deployment
+$ bosh deployments
+```
+
+The list in `bosh deployments` should be 0. Well done.
 
 ![well-done][well-done]
 
-On the next [lab-3][lab-3] we deploy Cloud Foundry to BOSH-lite!
+On to our the next [lab-3][lab-3].  Where we will deploy Cloud Foundry to
+BOSH-lite!
 
 [//]: # (Pictures)
 

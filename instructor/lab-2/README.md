@@ -10,6 +10,10 @@ delete-environment (5 mins)
 
 bosh-lite create-env (10 mins)
 
+bosh-lite zookeeper-deployment (5 mins)
+
+bosh-lite delete-deployment zookeeper
+
 ## Team Up Cheat Sheet
 
 The users need to logout and re-authenticate to the new BOSH-lite director
