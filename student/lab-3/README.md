@@ -1,31 +1,50 @@
 # lab-3
 
-How to match up the version of `cf-deployment` with what stemcell to use.
+BOSH was created to deploy Cloud Foundry.  Our next steps will be to deploy
+Cloud Foundry to containers running on our BOSH-lite director.
 
-Go to [releases page][releases-page] and look for **Release and Stemcell
-Updates**
 
-< insert screenshot of what that looks like>
+## Pick Correct Stemcell
 
-Make sure we have the latest version
+When you need to deploy any release, you may need to figure out what is the right stemcell to use.  Here's a good technique to use.
 
-```
-$ bosh stemcells
-```
+### Release Notes
 
-Or upload it, by specifying the version.
+  * Read the Release Notes of the software you're about to deploy.
+
+For example, on the [releases page][releases-page] for `cf-deployment` we see a section called **Release and Stemcell Updates**.  It tells us to use the `ubuntu-trusty` 3541.12 stemcell version.
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/stemcell.png" width="674" height="312" title="Stemcell">
+
+### Target Cloud
+
+  * Are you deploying to containers?
+  * Or are you deploying to a cloud like GCP, AWS, Azure, and so on?
+
+Go to the list of stemcells and look for the target infrastructure you're using:
+
+http://bosh.cloudfoundry.org/stemcells/
+
+Click the "prev..." button to get `bosh upload-stemcell` commands.  Run this to
+upload our warden (container) based stemcell for BOSH-lite:
 
 ```
 $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3541.12
 ```
 
-Create a `deploy-cf.sh` file.
+## BOSH-lite Cloud Foundry
+
+### Deploy CF
+
+We are going to deploy Cloud Foundry together to our BOSH-lite director.
+
+1. Create a `deploy-cf.sh` file.
 
 ```
 $ vi deploy-cf.sh
 ```
 
-With the following variables:
+Insert into the file, this content:
 
 ```
 #!/usr/bin/env bash
