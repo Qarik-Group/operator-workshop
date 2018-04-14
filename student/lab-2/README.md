@@ -191,6 +191,46 @@ $ sudo chmod +x create-env.sh
 $ ./create-env.sh
 ```
 
+
+Once that has finished, there is a new cloud config because the new cloud are
+containers instead of virtual machines.  Once again we have an example in this
+`lab-2` folder.
+
+```
+$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
+```
+
+Test deploy zookeeper to the BOSH-lite.  Yet we need to upload the container
+stemcell instead of the Google stemcell.
+
+Google Stemcell looks like this:
+
+```
+$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty-go_agent
+```
+
+And the container stemcell looks like this, upload this stemcell.
+
+```
+$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
+```
+
+Unfortunately, if you're still in the SSH session used from before to create
+the first BOSH director, you'll get an error like this:
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
+
+
+Now do the deploy.
+
+```
+$ git clone https://github.com/cppforlife/zookeeper-release.git
+$ cd zookeeper-release
+$ bosh -d zookeeper deploy manifests/zookeeper.yml
+```
+
+
+
 [//]: # (Pictures)
 
 
