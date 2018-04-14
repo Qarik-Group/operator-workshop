@@ -220,7 +220,7 @@ the first BOSH director, you'll get an error like this:
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
 
-## Team UP
+## Team Up
 
 What's going on with not being able to upload a stemcell?  Did we miss a step?
 What step did we miss and what do we need to do?
