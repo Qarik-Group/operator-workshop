@@ -237,7 +237,9 @@ Points to the team done first.
 
 ### Result
 
-the result of deployment pic goes here.
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-warden.png" width="700" height="172" title="Zookeeper VMS on Warden">
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/lab-2-container-results.png" width="746" height="285" title="Lab 1 VM Results">
 
 On the next [lab-3][lab-3] we deploy Cloud Foundry to BOSH-lite!
 
