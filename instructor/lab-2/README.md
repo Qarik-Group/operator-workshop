@@ -8,12 +8,12 @@ delete-deployment (10 mins)
 
 delete-environment (5 mins)
 
-bosh-lite create-env (10 minuntes)
-
+bosh-lite create-env (10 mins)
 
 ## Team Up Cheat Sheet
 
-The users need to logout and re-authenticate to the new BOSH-lite director.
+The users need to logout and re-authenticate to the new BOSH-lite director
+before they can deploy again.
 
 ```
 $ bosh logout

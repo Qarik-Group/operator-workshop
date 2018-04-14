@@ -191,40 +191,42 @@ $ sudo chmod +x create-env.sh
 $ ./create-env.sh
 ```
 
-## BOSH-lite Cloud Config
+## Deploy Zookeeper to BOSH-lite
 
-Once that has finished, there is a new cloud config because the new cloud are
-containers instead of virtual machines.  Once again we have an example in this
-`lab-2` folder.
+Our BOSH-lite is deployed.  It's now our BOSH-director and host for containers
+all rolled into one server.  We want to deploy our "Hello World" zookeeper
+BOSH release again.  Here's what we'll do:
+
+First update the `cloud-config`:
 
 ```
 $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
 ```
 
-And we need the container stemcell instead of the Google Cloud stemcell.
+And we'll need a container stemcell instead of the Google Cloud stemcell.
 
 ```
 $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
 ```
 
-### Error
-
-Unfortunately, if you're still in the SSH session used from before to create
-the first BOSH director, you'll get an error like this:
-
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
-
-## Team Up
-
-What's going on with not being able to upload a stemcell?  Did we miss a step?
-What step did we miss and what do we need to do?
-
-Figure out why we can't upload the stemcell and get zookeeper deployed again.
+Finally, we can deploy zookeeper:
 
 ```
 $ git clone https://github.com/cppforlife/zookeeper-release.git
 $ bosh -d zookeeper deploy zookeeper-release/manifests/zookeeper.yml
 ```
+
+### Error
+
+Yet before we can get any of the above commands to work, we get an error like
+below: `x509 Unknown Authority`.
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
+
+## Team Up
+
+It's time to team up again!  Figure out what we need to do so we can deploy the
+"Hello World" release.
 
 10 points to the team done first.
 
