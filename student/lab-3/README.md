@@ -51,7 +51,7 @@ And to ensure our environment variables are set.
 $ env | grep MY
 ```
 
-or to reset them.
+Or make sure to reset them in the SSH session.
 
 ```
 export MY_CIDR=10.42.1.0/24
@@ -66,7 +66,7 @@ $ sudo chmod +x deploy-cf.sh
 $ ./deploy-cf
 ```
 
-this takes about ..... minutes.
+this takes about 20 minutes.
 
 Grab the `cf_admin_password` from the `deployment-vars.yml` store.
 
