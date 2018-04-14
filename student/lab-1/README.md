@@ -10,6 +10,12 @@ amirite?
 
 ### Create Environment
 
+Let's make sure we start in your `lab-1` folder:
+
+```
+$ cd ~/operator-workshop/student/lab-1
+```
+
 1. Set environment variables.
 
 Each of you will have received a card with the values to the environment
@@ -96,6 +102,8 @@ $ sudo chmod +x create-env.sh
 $ ./create-env.sh
 ```
 
+This process should take about 10 - 12 minutes.
+
 ### Result
 
 NOTE: What happens as we deploy bosh?  What does each stage of the process mean?
@@ -138,7 +146,7 @@ To login to the BOSH director, copy the value from `admin_password:` from
 the `creds.yml`.  Then run this `bosh` command:
 
 ```
-$ bosh login
+$ bosh -e bosh-director login
 ```
 
 We should now be authenticated to the BOSH director.  Please raise your hand and

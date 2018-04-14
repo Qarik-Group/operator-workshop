@@ -60,19 +60,18 @@ Then these commands would be able to help them do a deploy.
 3. Deploy bosh release.
 
 ```
-
 $ git clone https://github.com/cppforlife/zookeeper-release.git
-$ cd zookeeper-release
-$ bosh -d zookeeper deploy manifests/zookeeper.yml
-... fail
-upload stemcell
-... succeed
+$ bosh -d zookeeper deploy zookeeper-release/manifests/zookeeper.yml
+let the user fail to deploy ...
+then do the upload stemcell ...
+... successful deploy
 ```
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/success.png" width="342" height="249" title="Success">
 
 ### Stemcell
 
-Yet they will also need to upload a stemcell.  Let them fail on that first.
-Then explore the [stemcell page][stemcell-page], talk about what it is, and how
+Also could explore the [stemcell page][stemcell-page], talk about what it is, and how
 to use the command.
 
 ```
