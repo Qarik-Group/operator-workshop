@@ -233,15 +233,31 @@ $ cd zookeeper-release
 $ bosh -d zookeeper deploy manifests/zookeeper.yml
 ```
 
-Points to the team done first.
+10 points to the team done first.
 
 ### Result
 
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-warden.png" width="700" height="172" title="Zookeeper VMS on Warden">
+Tell the story of how we've deployed to containers now.
+
+And we're using one host virtual machine on Google Cloud as our BOSH-lite
+yet inside, it's deploying containers.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/lab-2-container-results.png" width="746" height="285" title="Lab 1 VM Results">
 
+That the IP addresses of the containers are in our internal cloud of
+`10.244.0.0/20`.
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-warden.png" width="700" height="172" title="Zookeeper VMS on Warden">
+
+Well done.
+
+![well-done][well-done]
+
 On the next [lab-3][lab-3] we deploy Cloud Foundry to BOSH-lite!
+
+[//]: # (Pictures)
+
+[well-done]: https://github.com/starkandwayne/operator-workshop/raw/master/images/well-done.gif "Well Done"
 
 [//]: # (Links)
 
