@@ -54,7 +54,11 @@ $ env | grep MY
 or to reset them.
 
 ```
-ENV GOES HERE
+export MY_CIDR=10.42.1.0/24
+export MY_GW=10.42.1.1
+export MY_INTERNAL_IP=10.42.1.10
+export MY_EXTERNAL_IP=35.196.19.152
+export MY_SUBNET=student-1
 ```
 
 ```
@@ -64,7 +68,13 @@ $ ./deploy-cf
 
 this takes about ..... minutes.
 
-Find the `cf_admin_password` in `deployment-vars.yml` use the username `admin`.
+Grab the `cf_admin_password` from the `deployment-vars.yml` store.
+
+```
+$ bosh int deployment-vars.yml --path /cf_admin_password
+```
+
+And log into `cf`:
 
 ```
 $ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
