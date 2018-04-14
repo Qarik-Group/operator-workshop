@@ -36,7 +36,14 @@ $ bosh -d zookeeper vms
 
 Notice the IP addresses are all in our internal student subnet of `10.42.1.0/24.`
 
-## Delete Deployment
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/lab-1-vm-results.png" width="749" height="365" title="Lab 1 VM Results">
+
+And it created full virtual machines in Google Cloud.
+
+Next we are going to delete this deployment and create a container-based
+deployment on what's called a BOSH-lite system.
+
+## Delete
 
 We want to remove the Google Cloud deployment to make room for a BOSH-lite
 deployment next.  
@@ -64,6 +71,20 @@ Another thing that's great with each command, is that a direct link to docs is
 at the top: https://bosh.io/docs/cli-v2
 
 ## BOSH-lite
+
+BOSH-lite changes the backend from being virtual machines to being containers.
+
+Boom 1.
+
+You can create as many containers as your host can reasonably run.
+
+Boom 2.
+
+Your host machine can be on the cloud.
+
+Boom goes the dynamite!
+
+Let's setup a BOSH-lite on Google Cloud already...
 
 ### Delete Director
 
