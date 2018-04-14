@@ -10,13 +10,13 @@ So, what happened in zookeeper when we deployed?
 Task 5 | 15:16:05 | Updating instance zookeeper: zookeeper/b9cb899e-d37a-4e94-81e1-b43d3368bf27 (0) (canary) (00:00:51)
 ```
 
-What is a [canary][canary]?
+What is a [canary][canary]?  What would a canary protect against?
 
 ## Deployments
 
 We're going to look at the "Hello World" deployment with some `bosh` commands.
 
-### View
+### View Deployment
 
 Here's how we look at the zookeeper deployment.  First, if we've forgotten the
 name of the deployment we can get a list of all deployments like this.
@@ -43,12 +43,12 @@ And it created full virtual machines in Google Cloud.
 Next we are going to delete this deployment and create a container-based
 deployment on what's called a BOSH-lite system.
 
-## Delete
+## Team Up
 
 We want to remove the Google Cloud deployment to make room for a BOSH-lite
 deployment next.  
 
-### Teams Exercise
+### Delete Deployment
 
 To delete our "Hello World" deployment, what command will we use? Let's talk
 about a technique we can use to find commands. Run `bosh` with no sub-command
@@ -90,12 +90,17 @@ Let's setup a BOSH-lite on Google Cloud already...
 
 ### Delete Director
 
+NOTE: Have you deleted your "Hello World" deployment first?  Please make sure
+you've done this first before deleting the director.  Our helpful instructors
+are standing by for assistance.
+
 1. Ensure we're still in `~/operator-workshop/student/lab-1` folder.
 
 2. Let's create a `delete-env.sh` command.
 
 ```
 $ cp create-env.sh delete-env.sh
+$ vi delete-env.sh
 ```
 
 Edit the file with `vi` and change the command from `create-env` to
