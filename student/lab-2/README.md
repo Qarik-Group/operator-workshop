@@ -84,6 +84,8 @@ Your host machine can be on the cloud.
 
 Boom goes the dynamite!
 
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/dynamite.gif" width="608" height="320" title="Dynamite!">
+
 Let's setup a BOSH-lite on Google Cloud already...
 
 ### Delete Director
