@@ -49,14 +49,14 @@ $ cd ~/operator-workshop/student/lab-3
 $ vi deploy-cf.sh
 ```
 
-3. Insert into the file, this content:
+3. Insert into the `deploy-cf.sh` file, this content:
 
 ```
 #!/usr/bin/env bash
 
 set -eu
 
-bosh -d cf deploy cf-deployment/cf-deployment.yml \
+bosh -n -d cf deploy cf-deployment/cf-deployment.yml \
     --vars-store deployment-vars.yml \
     -v "system_domain=sys.$MY_EXTERNAL_IP.netip.cc" \
     -o cf-deployment/operations/bosh-lite.yml \
@@ -69,13 +69,13 @@ bosh -d cf deploy cf-deployment/cf-deployment.yml \
 $ git clone https://github.com/cloudfoundry/cf-deployment.git
 ```
 
-And to ensure our environment variables are set.
+5. Ensure our environment variables are set or reset them.
 
 ```
 $ env | grep MY
 ```
 
-Or make sure to reset them in the SSH session.
+Reset them in the SSH session if necessary.
 
 ```
 export MY_CIDR=10.42.1.0/24
@@ -85,24 +85,42 @@ export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 ```
 
+6. There is a small change to the `cloud-config` we need to fix before we can deploy.  An updated `cloud-config.yml` is included in this `lab-3` folder.
+
+```
+$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
+```
+
+7. We'll mark the `deploy-cf.sh` file as executable and run the script.
+
 ```
 $ sudo chmod +x deploy-cf.sh
-$ ./deploy-cf
+$ ./deploy-cf.sh
 ```
 
-this takes about 20 minutes.
+NOTE: This will take between 20 to 25 minutes to complete, please ensure your session
+will not be interrupted during this time.
 
-Grab the `cf_admin_password` from the `deployment-vars.yml` store.
+## CF CLI
+
+We've installed the `cf-cli` tool on the **student-workspace** server for us to
+be able to interact with our Cloud Foundry system.  First let's login.
+
+### Authentication
+
+1. Grab the `cf_admin_password` from the `deployment-vars.yml` store we saved all passwords to when we ran the `deploy-cf.sh` script.
 
 ```
 $ bosh int deployment-vars.yml --path /cf_admin_password
 ```
 
-And log into `cf`:
+2. The `cf login` command helps us login, because we're not using a valid SSL certificate we'll need to `--skip-ssl-validation` as we sign in.
 
 ```
 $ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
 ```
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/login-success.png" width="769" height="189" title="Login Success">
 
 [//]: # (Links)
 
