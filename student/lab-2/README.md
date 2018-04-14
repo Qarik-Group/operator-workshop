@@ -176,7 +176,14 @@ export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 ```
 
-6. Give your command executable permissions and run the command to create your
+6. Since we are in a new lab folder we'll quickly clone down the
+`bosh-deployment` git repo again.
+
+```
+$ git clone https://github.com/cloudfoundry/bosh-deployment
+```
+
+7. Give your command executable permissions and run the command to create your
 BOSH-lite director.
 
 ```
