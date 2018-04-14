@@ -232,16 +232,19 @@ It's time to team up again!  Figure out what we need to do so we can deploy the
 
 ## BOSH-lite Review
 
-Now we have completed our deployment of zookeeper again, we can use the
+Again, all of this happens on one, generally larger host computer.  For our
+example we're on a **n1-standard-8 (8 vCPUs, 30 GB memory)** for Google Cloud.
+
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/lab-2-container-results.png" width="746" height="285" title="Lab 1 VM Results">
+
+Since we have completed our deployment of zookeeper again, we can use the
 `bosh vms` command to review what instances are running in our deployment.
 
 ```
 $ bosh -d zookeeper vms
 ```
 
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/lab-2-container-results.png" width="746" height="285" title="Lab 1 VM Results">
-
-And the IP addresses are different from our cloud IP addresses of `10.42.X.0/24`
+The IP addresses are different from our cloud IP addresses of `10.42.X.0/24`
 before and are now on a `10.244.0.0/20` as configured in our
 `lab-2/cloud-config.yml` file.
 
@@ -255,7 +258,7 @@ $ bosh -d zookeeper delete-deployment
 $ bosh deployments
 ```
 
-The list in `bosh deployments` should be 0. Well done.
+The list in `bosh deployments` should be 0, well done.
 
 ![well-done][well-done]
 

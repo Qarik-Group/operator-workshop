@@ -51,12 +51,12 @@ The student is now ready to begin student [lab-1][lab-1].
 
 ## Team Up Cheat Sheet
 
-The zookeeper deploy time takes about 10 minutes.
+## Timers
 
-```
-Task 3 Started  Sat Apr 14 16:48:40 UTC 2018
-Task 3 Finished Sat Apr 14 16:58:59 UTC 2018
-```
+Build times for specific actions.
+
+  * bosh-lite create-env (10 mins)
+  * google cloud zookeeper-deployment (10 mins)
 
 ### Deploy Steps
 
@@ -95,7 +95,3 @@ $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-trusty
 [lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1
 [lab-2]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-2
 [service-account]: https://console.cloud.google.com/iam-admin/serviceaccounts/project
-
-
-Task 3 Started  Sat Apr 14 16:48:40 UTC 2018
-Task 3 Finished Sat Apr 14 16:58:59 UTC 2018
