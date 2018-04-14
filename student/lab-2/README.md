@@ -70,19 +70,13 @@ $ bosh <command> --help
 Another thing that's great with each command, is that a direct link to docs is
 at the top: https://bosh.io/docs/cli-v2
 
+First team again, with their deployments deleted, adds ten more points.
+
 ## BOSH-lite
 
-BOSH-lite changes the backend from being virtual machines to being containers.
-
-Boom 1.
-
-You can create as many containers as your host can reasonably run.
-
-Boom 2.
-
-Your host machine can be on the cloud.
-
-Boom goes the dynamite!
+* BOSH-lite changes the backend from being virtual machines to being containers. Boom 1.
+* You can create as many containers as your host can reasonably run. Boom 2.
+* Your host machine can be on the cloud. Boom goes the dynamite!
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/dynamite.gif" width="608" height="320" title="Dynamite!">
 
