@@ -112,7 +112,7 @@ a BOSH-lite.
 
 ### Create BOSH-lite
 
-3. Change to the lab-2 folder to create a BOSH-lite `create-env.sh` file.
+3. Change to the `lab-2` folder to create a BOSH-lite `create-env.sh` file.
 
 ```
 $ cd ~/operator-workshop/student/lab-2
