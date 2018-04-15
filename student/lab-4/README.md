@@ -12,9 +12,13 @@ show it be available in the market place
 
 ## Service Broker
 
+Ensure directory.
+
 ```
 cd ~/operator-workshop/student/lab-4
 ```
+
+Make sure we're logged into BOSH director and have correct environment variables.
 
 ```
 export MY_CIDR=10.42.1.0/24
@@ -30,13 +34,42 @@ bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password
 bosh login
 ```
 
+Clone the `cf-mysql-deployment` repo.
+
 ```
 git clone https://github.com/cloudfoundry/cf-mysql-deployment
 ```
 
-cd ~/workspace/cf-mysql-deployment
+Create new environment variables used in this deploy.
+
+```
+export BOSH_ENVIRONMENT=bosh-director
+export SYSTEM_DOMAIN=sys.$MY_EXTERNAL_IP.netip.cc
+export CF_ADMIN_PASSWORD=$(bosh int ~/operator-workshop/student/lab-3/deployment-vars.yml --path /cf_admin_password)
+```
+
+Upload the BOSH release BLOB.
+
+```
+$ bosh upload-release https://bosh.io/d/github.com/cloudfoundry/cf-mysql-release --sha1 401cd27775423ee6b3a6e53e89010261c17e0c5c
+```
+
+Create the cf-mysql.sh deploy script.
+
+```
+$ vi cf-mysql.sh
+```
+
+Insert:
+
+```
+#!/usr/bin/env bash
+
+set -eu
+
 bosh -d cf-mysql deploy \
-  cf-mysql-deployment.yml --vars-store mysql-creds.yml \
+  cf-mysql-deployment.yml \
+  --vars-store mysql-creds.yml \
   -o ./operations/add-broker.yml \
   --vars-file bosh-lite/default-vars.yml \
   --var cf_mysql_external_host=p-mysql.$SYSTEM_DOMAIN \
@@ -44,6 +77,10 @@ bosh -d cf-mysql deploy \
   --var cf_admin_password=$CF_ADMIN_PASSWORD \
   --var cf_api_url=https://api.$SYSTEM_DOMAIN \
   --var cf_skip_ssl_validation=true
+```
 
+When deploy is complete run the broker registrar.
 
-bosh -e YOUR_ENV -d cf-mysql run-errand broker-registrar
+```
+bosh -d cf-mysql run-errand broker-registrar
+```
