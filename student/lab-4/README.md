@@ -67,16 +67,15 @@ Insert:
 
 set -eu
 
-bosh -d cf-mysql deploy \
-  cf-mysql-deployment.yml \
+bosh -n -d cf-mysql deploy cf-mysql-deployment.yml \
   --vars-store mysql-creds.yml \
-  -o ./operations/add-broker.yml \
+  -o operations/add-broker.yml \
   --vars-file bosh-lite/default-vars.yml \
-  --var cf_mysql_external_host=p-mysql.$SYSTEM_DOMAIN \
-  --var cf_mysql_host=$BOSH_ENVIRONMENT \
-  --var cf_admin_password=$CF_ADMIN_PASSWORD \
-  --var cf_api_url=https://api.$SYSTEM_DOMAIN \
-  --var cf_skip_ssl_validation=true
+  -v cf_mysql_external_host=p-mysql.$SYSTEM_DOMAIN \
+  -v cf_mysql_host=$BOSH_ENVIRONMENT \
+  -v cf_admin_password=$CF_ADMIN_PASSWORD \
+  -v cf_api_url=https://api.$SYSTEM_DOMAIN \
+  -v cf_skip_ssl_validation=true
 ```
 
 When deploy is complete run the broker registrar.
