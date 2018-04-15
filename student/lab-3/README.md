@@ -69,13 +69,13 @@ bosh -n -d cf deploy cf-deployment/cf-deployment.yml \
 $ git clone https://github.com/cloudfoundry/cf-deployment.git
 ```
 
-5. Ensure our environment variables are set or reset them.
+5. Ensure our environment variables are set.
 
 ```
 $ env | grep MY
 ```
 
-Reset them in the SSH session if necessary.
+Add them again in the SSH session if necessary.
 
 ```
 export MY_CIDR=10.42.1.0/24
@@ -85,7 +85,7 @@ export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 ```
 
-6. There is a small change to the `cloud-config` we need to fix before we can deploy.  An updated `cloud-config.yml` is included in this `lab-3` folder.
+6. There is a small change to the `cloud-config` we need to fix before we can deploy.  An updated `cloud-config.yml` is included in this `lab-3` folder, it changes the initial `vm_type` from "default" to "minimal".
 
 ```
 $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
@@ -100,6 +100,10 @@ $ ./deploy-cf.sh
 
 NOTE: This will take between 20 to 25 minutes to complete, please ensure your session
 will not be interrupted during this time.
+
+During the deployment of cf either we go to lunch or break or we define:
+
+* a simple define orgs, spaces, users
 
 ## CF CLI
 
@@ -121,6 +125,29 @@ $ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
 ```
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/login-success.png" width="769" height="189" title="Login Success">
+
+## Team Up
+
+### Hello App
+
+cf orgs
+cf spaces
+cf create-space apps -o system
+cf target -o system -s apps
+
+git clone https://github.com/cloudfoundry-community/cf-env.git
+cd cf-env
+cf push
+
+## Troubleshooting Tools
+
+cf apps
+
+cf ssh
+
+ps auxf
+
+cf logs
 
 [//]: # (Links)
 
