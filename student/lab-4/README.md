@@ -67,10 +67,10 @@ Insert:
 
 set -eu
 
-bosh -n -d cf-mysql deploy cf-mysql-deployment.yml \
+bosh -n -d cf-mysql deploy cf-mysql-deployment/cf-mysql-deployment.yml \
   --vars-store mysql-creds.yml \
-  -o operations/add-broker.yml \
-  --vars-file bosh-lite/default-vars.yml \
+  -o cf-mysql-deployment/operations/add-broker.yml \
+  --vars-file cf-mysql-deployment/bosh-lite/default-vars.yml \
   -v cf_mysql_external_host=p-mysql.$SYSTEM_DOMAIN \
   -v cf_mysql_host=$BOSH_ENVIRONMENT \
   -v cf_admin_password=$CF_ADMIN_PASSWORD \
