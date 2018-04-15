@@ -149,6 +149,9 @@ ps auxf
 
 cf logs
 
+Next is [lab-4][lab-4].
+
 [//]: # (Links)
 
 [releases-page]: https://github.com/cloudfoundry/cf-deployment/releases
+[lab-4]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-4
