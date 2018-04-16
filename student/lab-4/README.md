@@ -82,13 +82,18 @@ bosh -n -d cf-mysql deploy cf-mysql-deployment/cf-mysql-deployment.yml \
 ```
 
 
+cf create-service-broker p-mysql BROKER_USERNAME BROKER_PASSWORD URL
+
+
+p-mysql.sys.35.196.19.152.netip.cc
+
 
 Deploy fails
 fix the cloud config
 
 
 ```
-$ bosh update-cloud-config cf-mysql-deployment/bosh-lite/cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
+$ bosh update-cloud-config cloud-config.yml
 ```
 
 ```
