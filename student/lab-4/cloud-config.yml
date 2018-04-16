@@ -6,7 +6,7 @@ compilation:
   az: z1
   network: default
   reuse_compilation_vms: true
-  vm_type: minimal
+  vm_type: default
   workers: 6
 disk_types:
 - disk_size: 1024
@@ -56,6 +56,6 @@ vm_extensions:
     ports:
     - host: 8845
 vm_types:
-- name: minimal
+- name: default
 - name: small
 - name: small-highmem
