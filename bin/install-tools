@@ -9,7 +9,17 @@ apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxsl
 # add http://apt.starkandwayne.com/ to apt sources
 wget -q -O - https://raw.githubusercontent.com/starkandwayne/homebrew-cf/master/public.key | apt-key add -
 echo "deb http://apt.starkandwayne.com stable main" | tee /etc/apt/sources.list.d/starkandwayne.list
+
+# let them use java
+apt-add-repository ppa:webupd8team/java
+add-apt-repository ppa:cwchien/gradle
+
+# update apt sources
 apt-get update -y
 
 # install cli tools
 apt-get install bosh-cli cf-cli -y
+
+# install java and gradle
+apt-get install -y oracle-java8-installer
+apt-get install -y gradle

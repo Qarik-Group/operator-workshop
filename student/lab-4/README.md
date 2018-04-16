@@ -156,16 +156,6 @@ bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password
 bosh login
 ```
 
-Install java and gradle needs to be added to bin/install-tools
-
-```
-sudo apt-add-repository ppa:webupd8team/java
-sudo add-apt-repository ppa:cwchien/gradle
-sudo apt-get update
-sudo apt-get install oracle-java8-installer
-sudo apt-get install gradle
-```
-
 clone spring music
 
 ```
@@ -177,33 +167,38 @@ cf push
 
 
 
+bosh upload-release https://bosh.io/d/github.com/cloudfoundry-incubator/cf-routing-release?v=0.145.0
+
 cf marketplace
-cf create-service spring-music-db 20mb p-mysql
+
 cf services
-cf marketplace
-cf marketplace --help
-cf marketplace -s
+
 cf marketplace -s p-mysql
-cf create-service spring-music-db 10mb p-mysql
-cf create-service p-mysql 10mb spring-music-db
+
+cf create-service p-mysql 20mb mydb
+
 cf apps
+
 cf services
-cf bind-service spring-music spring-music-db
-cf restage spring-music
+
+cf bind-service spring-music mydb
+
+cf restart spring-music
+
 cf logs spring-music --recent
 cf bind
-cf
+
 cf unbind-service
 cf services
 bosh -d cf-mysql vms
-cf
+
 cf service
 cf service spring-music-db
 bosh int ~/operator-workshop/student/lab-3/deployment-vars.yml --path /cf_admin_password
 cf app
 cf apps
 cf app spring-music
-cf
+
 cf bind-service
 cf services
 cf services -h
