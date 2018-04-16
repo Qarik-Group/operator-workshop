@@ -143,6 +143,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/bosh-lite.yml \
     -o bosh-deployment/bosh-lite-runc.yml \
     -o bosh-deployment/gcp/bosh-lite-vm-type.yml \
+    -o bosh-deployment/jumpbox-user.yml \
     -o ip-forwarding.yml \
     -v director_name=bosh-director \
     -v internal_cidr=$MY_CIDR \
