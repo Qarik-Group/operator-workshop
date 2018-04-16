@@ -70,6 +70,9 @@ set -eu
 bosh -n -d cf-mysql deploy cf-mysql-deployment/cf-mysql-deployment.yml \
   --vars-store mysql-creds.yml \
   -o cf-mysql-deployment/operations/add-broker.yml \
+  -o cf-mysql-deployment/operations/bosh-lite.yml \
+  -o cf-mysql-deployment/operations/latest-versions.yml \
+  -o cf-mysql-deployment/operations/register-proxy-route.yml \
   --vars-file cf-mysql-deployment/bosh-lite/default-vars.yml \
   -v cf_mysql_external_host=p-mysql.$SYSTEM_DOMAIN \
   -v cf_mysql_host=$BOSH_ENVIRONMENT \
@@ -78,18 +81,19 @@ bosh -n -d cf-mysql deploy cf-mysql-deployment/cf-mysql-deployment.yml \
   -v cf_skip_ssl_validation=true
 ```
 
+
+
 Deploy fails
 fix the cloud config
 
 
 ```
-$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
+$ bosh update-cloud-config cf-mysql-deployment/bosh-lite/cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
 ```
 
-stemcell broke
-
 ```
-$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3541.10
+cf create-security-group cf-mysql sg.json
+cf bind-running-security-group cf-mysql
 ```
 
 When deploy is complete run the broker registrar.
@@ -175,13 +179,16 @@ cf services
 
 cf marketplace -s p-mysql
 
-cf create-service p-mysql 20mb mydb
+cf create-service p-mysql 20mb database
 
 cf apps
 
 cf services
 
-cf bind-service spring-music mydb
+cf create-security-group cf-mysql rule.json
+cf bind-running-security-group cf-mysql
+
+cf bind-service spring-music database
 
 cf restart spring-music
 
