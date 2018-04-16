@@ -1,14 +1,6 @@
 [
- {
-   "destination": "10.10.163.1-10.10.163.255",
-   "protocol": "all"
-  },
- {
-   "destination": "10.10.164.1-10.10.164.255",
-   "protocol": "all"
-  },
- {
-   "destination": "10.10.165.1-10.10.165.255",
-   "protocol": "all"
+  {
+  "protocol": "all",
+  "destination": "10.244.4.0-10.254.0.0"
   }
 ]
