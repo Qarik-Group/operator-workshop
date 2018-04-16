@@ -201,7 +201,7 @@ BOSH release again.  Here's what we'll do:
 First update the `cloud-config`:
 
 ```
-$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
+$ bosh update-cloud-config cloud-config.yml
 ```
 
 And we'll need a container stemcell instead of the Google Cloud stemcell.
@@ -224,12 +224,41 @@ below: `x509 Unknown Authority`.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
 
-## Team Up
+## Login
 
-It's time to team up again!  Figure out what we need to do so we can deploy the
-"Hello World" release.
+```
+#!/usr/bin/env bash
 
-10 points to the team done first.
+set -eux
+
+export MY_CIDR=10.42.1.0/24
+export MY_GW=10.42.1.1
+export MY_INTERNAL_IP=10.42.1.10
+export MY_EXTERNAL_IP=35.196.19.152
+export MY_SUBNET=student-1
+export BOSH_ENVIRONMENT=bosh-director
+
+# create jumpbox key
+bosh int creds.yml --path /jumpbox_ssh/private_key > jumpbox.key
+
+# give it permissions
+chmod 600 jumpbox.key
+
+# open an ssh port for the SOCKS5 tunnel
+ssh -4 -D 12345 -fNC jumpbox@$MY_EXTERNAL_IP -i jumpbox.key
+
+# set this variable to a SOCKS5 url on the port
+export BOSH_ALL_PROXY=socks5://localhost:12345
+
+bosh logout
+
+bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
+
+export BOSH_CLIENT=admin
+export BOSH_CLIENT_SECRET=$(bosh int creds.yml --path /admin_password)
+
+bosh login
+```
 
 ## BOSH-lite Review
 
