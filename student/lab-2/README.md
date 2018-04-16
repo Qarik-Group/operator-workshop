@@ -239,12 +239,14 @@ export MY_SUBNET=student-1
 export BOSH_ENVIRONMENT=bosh-director
 
 # create jumpbox key
+# https://bosh.io/docs/jumpbox
 bosh int creds.yml --path /jumpbox_ssh/private_key > jumpbox.key
 
 # give it permissions
 chmod 600 jumpbox.key
 
 # open an ssh port for the SOCKS5 tunnel
+# https://bosh.io/docs/cli-tunnel.html
 ssh -4 -D 12345 -fNC jumpbox@$MY_EXTERNAL_IP -i jumpbox.key
 
 # set this variable to a SOCKS5 url on the port
@@ -258,6 +260,13 @@ export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=$(bosh int creds.yml --path /admin_password)
 
 bosh login
+```
+
+Source the login script rather than run it so we can get the environment variables
+in our shell as well.
+
+```
+$ . login.sh
 ```
 
 ## BOSH-lite Review
