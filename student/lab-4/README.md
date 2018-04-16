@@ -81,24 +81,16 @@ bosh -n -d cf-mysql deploy cf-mysql-deployment/cf-mysql-deployment.yml \
   -v cf_skip_ssl_validation=true
 ```
 
-
-cf create-service-broker p-mysql BROKER_USERNAME BROKER_PASSWORD URL
-
-
-p-mysql.sys.35.196.19.152.netip.cc
-
-
 Deploy fails
 fix the cloud config
-
 
 ```
 $ bosh update-cloud-config cloud-config.yml
 ```
 
 ```
-cf create-security-group cf-mysql sg.json
-cf bind-running-security-group cf-mysql
+cf create-security-group p-mysql sg.json
+cf bind-running-security-group p-mysql
 ```
 
 When deploy is complete run the broker registrar.
@@ -121,8 +113,6 @@ $ cf marketplace
 Using `cf create-service` how do we create a service?
 
 
-
-
 ```
 bosh -d cf-mysql run-errand broker-registrar
 ```
@@ -142,8 +132,6 @@ Restage the app.
 cf marketplace -s p-mysql
 
 
-
-
 in the right folder
 
 ```
@@ -159,7 +147,7 @@ export MY_INTERNAL_IP=10.42.1.10
 export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 bosh logout
-bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
+bosh alias-env bosh-director -e $MY_INTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
 export BOSH_ENVIRONMENT=bosh-director
 bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password
 bosh login
@@ -173,8 +161,6 @@ cd spring-music
 gradle clean assemble
 cf push
 ```
-
-
 
 bosh upload-release https://bosh.io/d/github.com/cloudfoundry-incubator/cf-routing-release?v=0.145.0
 
@@ -229,3 +215,14 @@ cf env spring-music
 cf unbind-service spring-music spring-music-db
 cf restart spring-music
 cf env spring-music
+
+
+ideas
+
+build spring-music locally
+
+uninstall gradle on server?
+
+clear the gradle cache?
+
+rm -rf ~/.gradle
