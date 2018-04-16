@@ -88,7 +88,7 @@ export MY_SUBNET=student-1
 6. There is a small change to the `cloud-config` we need to fix before we can deploy.  An updated `cloud-config.yml` is included in this `lab-3` folder, it changes the initial `vm_type` from "default" to "minimal".
 
 ```
-$ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
+$ bosh update-cloud-config cloud-config.yml
 ```
 
 7. We'll mark the `deploy-cf.sh` file as executable and run the script.

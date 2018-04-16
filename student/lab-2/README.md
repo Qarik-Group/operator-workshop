@@ -224,49 +224,51 @@ below: `x509 Unknown Authority`.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
 
-## Login
-
 ```
-#!/usr/bin/env bash
-
-set -eux
-
 export MY_CIDR=10.42.1.0/24
 export MY_GW=10.42.1.1
 export MY_INTERNAL_IP=10.42.1.10
 export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 export BOSH_ENVIRONMENT=bosh-director
+```
 
-# create jumpbox key
-# https://bosh.io/docs/jumpbox
-bosh int creds.yml --path /jumpbox_ssh/private_key > jumpbox.key
 
-# give it permissions
-chmod 600 jumpbox.key
+create jumpbox key https://bosh.io/docs/jumpbox
 
-# open an ssh port for the SOCKS5 tunnel
-# https://bosh.io/docs/cli-tunnel.html
-ssh -4 -D 12345 -fNC jumpbox@$MY_EXTERNAL_IP -i jumpbox.key
+```
+bosh int creds.yml --path /jumpbox_ssh/private_key > ~/jumpbox.key
+```
 
-# set this variable to a SOCKS5 url on the port
+give it permissions
+
+```
+chmod 600 ~/jumpbox.key
+```
+
+open an ssh port for the SOCKS5 tunnel https://bosh.io/docs/cli-tunnel.html
+
+```
+ssh -4 -D 12345 -fNC jumpbox@$MY_EXTERNAL_IP -i ~/jumpbox.key
+```
+
+set this variable to a SOCKS5 url on the port
+
+```
 export BOSH_ALL_PROXY=socks5://localhost:12345
+```
 
-bosh logout
+```
+bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
+```
 
-bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
-
+```
 export BOSH_CLIENT=admin
-export BOSH_CLIENT_SECRET=$(bosh int creds.yml --path /admin_password)
+export BOSH_CLIENT_SECRET=$(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password)
+```
 
+```
 bosh login
-```
-
-Source the login script rather than run it so we can get the environment variables
-in our shell as well.
-
-```
-$ . login.sh
 ```
 
 ## BOSH-lite Review
