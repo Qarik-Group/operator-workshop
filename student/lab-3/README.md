@@ -98,13 +98,6 @@ $ sudo chmod +x deploy-cf.sh
 $ ./deploy-cf.sh
 ```
 
-NOTE: This will take between 20 to 25 minutes to complete, please ensure your session
-will not be interrupted during this time.
-
-During the deployment of cf either we go to lunch or break or we define:
-
-* a simple define orgs, spaces, users
-
 ## CF CLI
 
 We've installed the `cf-cli` tool on the **student-workspace** server for us to
