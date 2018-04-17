@@ -10,7 +10,7 @@ amirite?
 
 ### Create Environment
 
-Let's make sure we start in your `lab-1` folder:
+Let's make sure we start in your `~/operator-workshop/student/lab-1` folder:
 
 ```
 $ cd ~/operator-workshop/student/lab-1
@@ -59,8 +59,8 @@ running:
 $ . ~/set-vars
 ```
 
-3. Next, let's create a `create-env.sh` file in your `lab-1` folder.  Use  `vi`
-again.
+3. Next, let's create a `create-env.sh` file in your
+`~/operator-workshop/student/lab-1` folder.  Use  `vi` again.
 
 ```
 $ vi create-env.sh
@@ -132,8 +132,9 @@ NOTE: What happens as we deploy bosh?  What does each stage of the process mean?
 ## Authentication
 
 Before we can do more with our BOSH director, we need to sign into it.  And
-during the deployment process, a default password was generated in our `lab-1`
-folder in the `creds.yml` file.
+during the deployment process, a default password was generated in our
+`~/operator-workshop/student/lab-1` folder in the
+`~/operator-workshop/student/lab-1/creds.yml` file.
 
 Here's the process used to sign into a BOSH director.
 
@@ -141,10 +142,10 @@ Here's the process used to sign into a BOSH director.
 
 An alias creates a shortcut that saves connection parameters to a name.
 
-In our `lab-1` folder, run:
+In our `~/operator-workshop/student/lab-1` folder, run:
 
 ```
-$ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
+$ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-1/creds.yml --path /director_ssl/ca)
 ```
 
 Now we have an environment alias called `bosh-director` that points to
@@ -160,11 +161,11 @@ Therefore we can look at the `creds.yml` file, for what password was
 generated.
 
 ```
-$ less creds.yml
+$ less ~/operator-workshop/student/lab-1/creds.yml
 ```
 
 To login to the BOSH director, copy the value from `admin_password:` from
-the `creds.yml`.  Then run this `bosh` command:
+the `~/operator-workshop/student/lab-1/creds.yml`.  Then run this `bosh` command:
 
 ```
 $ bosh -e bosh-director login
@@ -178,7 +179,8 @@ get help from an instructor if you need assistance with this.  Thank you!
 We are now logged into the director.
 
 BONUS: How could you do a `bosh login` with something like a
-`bosh int creds.yml --path /admin_password` to make a one-line login?
+`bosh int ~/operator-workshop/student/lab-1/creds.yml --path /admin_password`
+to make a one-line login?
 
 ### Using Environments
 
@@ -218,7 +220,8 @@ each major cloud like AWS, GCP, Azure, and so on.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/simple-cloud-config.png" width="888" height="176" title="Simple Cloud Config">
 
-Our `cloud-config.yml` is prepared for Google Cloud and our class in this `lab-1` folder.  Take a look at it now.
+Our `cloud-config.yml` is prepared for Google Cloud and our class in this
+`~/operator-workshop/student/lab-1` folder.  Take a look at it now.
 
 In order to set this configuration on our newly created BOSH director, we use
 the `bosh update-cloud-config` command.
