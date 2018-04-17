@@ -4,12 +4,17 @@
 
 Build times for specific actions.
 
-  * delete-deployment (10 mins)
-  * delete-environment (5 mins)
-  * bosh-lite create-env (10 mins)
-  * bosh-lite zookeeper-deployment (5 mins)
-  * bosh-lite delete-deployment zookeeper (seconds)
+  * bosh-lite cloud foundry (20 mins)
 
 ## Team Up Cheat Sheet
 
-### 
+### Hello CF Env
+
+There is no default space to begin with
+
+```
+$ cf create-space apps -o system
+$ cf target -o system -s apps
+$ git clone https://github.com/cloudfoundry-community/cf-env.git
+$ cf push
+```

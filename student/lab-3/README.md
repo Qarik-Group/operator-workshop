@@ -5,13 +5,16 @@ Cloud Foundry to containers running on our BOSH-lite director.
 
 ## How to Choose a Stemcell
 
-When you need to deploy any release, you may need to figure out what is the right stemcell to use.  Here's a good technique to use.
+When you need to deploy any release, you may need to figure out what is the
+right stemcell to use.  Here's a good technique to use.
 
 ### Release Notes
 
   * Read the Release Notes of the software you're about to deploy.
 
-For example, on the [releases page][releases-page] for `cf-deployment` we see a section called **Release and Stemcell Updates**.  It tells us to use the `ubuntu-trusty` 3541.12 stemcell version.
+For example, on the [releases page][releases-page] for `cf-deployment` we see
+a section called **Release and Stemcell Updates**.  It tells us to use the
+`ubuntu-trusty` 3541.12 stemcell version.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/stemcell.png" width="674" height="312" title="Stemcell">
 
@@ -79,7 +82,11 @@ If they are not there, make sure to export them again with the
 $ . ~/set-env
 ```
 
-6. There is a small change to the `cloud-config` we need to fix before we can deploy.  An updated `cloud-config.yml` is included in this `lab-3` folder, it changes the initial `vm_type` from "default" to "minimal".
+6. As you may have noticed now, it is common to get your `cloud-config` ready
+before you deploy.  Check your deployment repo for any examples or reference
+material before you prepare you deployment.  We're using the
+[bosh-lite cloud-config][cf-cc] for our deploy.
+
 
 ```
 $ bosh update-cloud-config cloud-config.yml
@@ -99,13 +106,15 @@ be able to interact with our Cloud Foundry system.  First let's login.
 
 ### Authentication
 
-1. Grab the `cf_admin_password` from the `deployment-vars.yml` store we saved all passwords to when we ran the `deploy-cf.sh` script.
+1. Grab the `cf_admin_password` from the `deployment-vars.yml` store we saved
+all passwords to when we ran the `deploy-cf.sh` script.
 
 ```
 $ bosh int deployment-vars.yml --path /cf_admin_password
 ```
 
-2. The `cf login` command helps us login, because we're not using a valid SSL certificate we'll need to `--skip-ssl-validation` as we sign in.
+2. The `cf login` command helps us login, because we're not using a valid SSL
+certificate we'll need to `--skip-ssl-validation` as we sign in.
 
 ```
 $ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
@@ -115,31 +124,50 @@ $ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
 
 ## Team Up
 
-### Hello App
+Deploy a Hello World App to Cloud Foundry.
 
-cf orgs
-cf spaces
-cf create-space apps -o system
-cf target -o system -s apps
+```
+$ git clone https://github.com/cloudfoundry-community/cf-env.git
+```
 
-git clone https://github.com/cloudfoundry-community/cf-env.git
-cd cf-env
-cf push
+First team done gets another 10 more smack-a-rack-a-points to the big board!
 
 ## Troubleshooting Tools
 
-cf apps
+Run `cf apps` to see what apps are running.
 
-cf ssh
+```
+$ cf apps
+Getting apps in org system / space apps as admin...
+OK
 
-ps auxf
+name     requested state   instances   memory   disk   urls
+cf-env   started           1/1         256M     1G     cf-env.sys.35.196.19.152.netip.cc
+```
 
-cf logs
+* Connect to your app instance with `cf ssh`:
 
-Next is [lab-4][lab-4].
+```
+$ cf ssh cf-env
+```
+
+* Check your logs with
+
+```
+$ cf logs cf-env
+```
+* See what environment variables set or services bound with `cf env`:
+
+```
+$ cf env cf-env
+```
+
+Coming up next is [lab-4][lab-4], where we add a MySQL service broker to our
+Cloud Foundry platform.
 
 [//]: # (Links)
 
 [releases-page]: https://github.com/cloudfoundry/cf-deployment/releases
 [lab-4]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-4
 [set-env]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-env
+[cf-cc]: https://github.com/cloudfoundry/cf-deployment/blob/master/iaas-support/bosh-lite/cloud-config.yml
