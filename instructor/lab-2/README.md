@@ -28,8 +28,8 @@ before they can deploy again.
 
 ```
 $ bosh logout
-$ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int creds.yml --path /director_ssl/ca)
+$ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
 $ export BOSH_ENVIRONMENT=bosh-director
-$ bosh int creds.yml --path /admin_password
+$ bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password
 $ bosh login
 ```

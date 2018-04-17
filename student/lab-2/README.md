@@ -221,52 +221,11 @@ below: `x509 Unknown Authority`.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
 
-```
-export MY_CIDR=10.42.1.0/24
-export MY_GW=10.42.1.1
-export MY_INTERNAL_IP=10.42.1.10
-export MY_EXTERNAL_IP=35.196.19.152
-export MY_SUBNET=student-1
-export BOSH_ENVIRONMENT=bosh-director
-```
+## Team Up
 
+It's time to team up again! Figure out what we need to do so we can deploy the "Hello World" release.
 
-create jumpbox key https://bosh.io/docs/jumpbox
-
-```
-bosh int creds.yml --path /jumpbox_ssh/private_key > ~/jumpbox.key
-```
-
-give it permissions
-
-```
-chmod 600 ~/jumpbox.key
-```
-
-open an ssh port for the SOCKS5 tunnel https://bosh.io/docs/cli-tunnel.html
-
-```
-ssh -4 -D 12345 -fNC jumpbox@$MY_EXTERNAL_IP -i ~/jumpbox.key
-```
-
-set this variable to a SOCKS5 url on the port
-
-```
-export BOSH_ALL_PROXY=socks5://localhost:12345
-```
-
-```
-bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
-```
-
-```
-export BOSH_CLIENT=admin
-export BOSH_CLIENT_SECRET=$(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password)
-```
-
-```
-bosh login
-```
+10 points to the team done first.
 
 ## BOSH-lite Review
 
@@ -283,7 +242,7 @@ $ bosh -d zookeeper vms
 ```
 
 The IP addresses are different from our cloud IP addresses of `10.42.X.0/24`
-before and are now on a `10.244.0.0/20` as configured in our
+before and are now on a `10.244.0.0/24` as configured in our
 `lab-2/cloud-config.yml` file.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/zookeeper-vms-warden.png" width="700" height="172" title="Zookeeper VMS on Warden">
