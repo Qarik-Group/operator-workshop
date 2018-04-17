@@ -2,7 +2,7 @@
 
 ## Setup BOSH SSH
 
-1. Ensure you have your environment variables [set from lab-1][set-vars].
+1. Ensure you have your environment variables [set from lab-1][set-env].
 
 ```
 $ . ~/set-env
@@ -60,4 +60,4 @@ jumpbox key that was generated when we deployed.
 
 [jumpbox]: https://bosh.io/docs/jumpbox
 [socks5]: https://bosh.io/docs/cli-tunnel.html
-[set-vars]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-vars
+[set-env]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-env

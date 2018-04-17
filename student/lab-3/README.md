@@ -73,7 +73,7 @@ $ env | grep MY
 ```
 
 If they are not there, make sure to export them again with the
-[set-vars][set-vars] helper we created at the beginning of `lab-1`.
+[set-env][set-env] helper we created at the beginning of `lab-1`.
 
 ```
 $ . ~/set-env
@@ -142,4 +142,4 @@ Next is [lab-4][lab-4].
 
 [releases-page]: https://github.com/cloudfoundry/cf-deployment/releases
 [lab-4]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-4
-[set-vars]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-vars
+[set-env]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-env

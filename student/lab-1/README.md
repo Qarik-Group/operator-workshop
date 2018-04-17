@@ -22,16 +22,16 @@ Each of you will have received a card with the values to the environment
 variables below.  If not, contact an instructor now.
 
 Since there are a number of environment variables to manage we're going to
-create a `set-vars` file in our home directory.
+create a `set-env` file in our home directory.
 
 ```
-$ vi ~/set-vars
+$ vi ~/set-env
 ```
 
 2. `vi` needs to be in "insert mode" before we can add text.  Push the `i` key
 to do this, and you'll be able to insert the following to the file:
 
-### set-vars
+### set-env
 
 ```
 # my variables
@@ -54,7 +54,7 @@ Now in future labs we can source these environment variables at any time by
 running:
 
 ```
-$ . ~/set-vars
+$ . ~/set-env
 ```
 
 3. Next, let's create a `create-env.sh` file in your
