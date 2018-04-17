@@ -16,36 +16,57 @@ Let's make sure we start in your `lab-1` folder:
 $ cd ~/operator-workshop/student/lab-1
 ```
 
-1. Set environment variables.
+1. Manage and set environment variables.
 
 Each of you will have received a card with the values to the environment
 variables below.  If not, contact an instructor now.
 
-Copy these environment variables to a scratch text file on your
-computer, as we may need to use them more than once during the lab.
-For instance if we lose a connection to the SSH terminal, we'll need
-to re-export the variables.
-
-When your ready, copy and paste the variables into your terminal
-window.
+Since there are a number of environment variables to manage we're going to
+create a `set-vars` file in our home directory.
 
 ```
+$ vi ~/set-vars
+```
+
+2. `vi` needs to be in "insert mode" before we can add text.  Push the `i` key
+to do this, and you'll be able to insert the following to the file:
+
+```
+# variables
+
 export MY_CIDR=10.42.1.0/24
 export MY_GW=10.42.1.1
 export MY_INTERNAL_IP=10.42.1.10
 export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
+export MY_ZONE=us-east1-c
+
+# output
+echo "MY_CIDR=$MY_CIDR"
+echo "MY_GW=$MY_GW"
+echo "MY_INTERNAL_IP=$MY_INTERNAL_IP"
+echo "MY_EXTERNAL_IP=$MY_EXTERNAL_IP"
+echo "MY_SUBNET=$MY_SUBNET"
+echo "MY_ZONE=$MY_ZONE"
 ```
 
-2. Let's create a `create-env.sh` file in your `lab-1` folder.  Use the `vi`
-editor on the server to create the file.
+To save a file with `vi`, hit the `ESC` key and then type `:wq` and ENTER.
+
+Now in future labs we can source these environment variables at any time by
+running:
+
+```
+$ . ~/set-vars
+```
+
+3. Next, let's create a `create-env.sh` file in your `lab-1` folder.  Use  `vi`
+again.
 
 ```
 $ vi create-env.sh
 ```
 
-`vi` needs to be in "insert mode" before we can add text.  Push the `i` key
-to do this, and you'll be able to insert the following to the file:
+Remember, press `i` to start the insert process:
 
 ```
 #!/usr/bin/env bash
@@ -65,14 +86,14 @@ bosh create-env bosh-deployment/bosh.yml \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
     -v project_id=bosh-operator-class \
-    -v zone=us-east1-c \
+    -v zone=$MY_ZONE \
     -v tags=[internal] \
     -v network=default \
     -v subnetwork=$MY_SUBNET \
     -v external_ip=$MY_EXTERNAL_IP
 ```
 
-To save a file with `vi`, hit the `ESC` key and then type `:wq` and ENTER.
+Then hit `ESC`, `:wq`, ENTER to save and quit.
 
 If you have any problems getting this file created and saved please get help
 from an instructor on-site.
@@ -86,7 +107,7 @@ when your deployed your BOSH director.  OR if you need to add something new
 to your existing BOSH director, it's already correctly configured and ready
 to go.
 
-3. Now we'll clone the `bosh-deployment` repo to this folder.
+4. Now we'll clone the `bosh-deployment` repo to this folder.
 
 ```
 $ git clone https://github.com/cloudfoundry/bosh-deployment
@@ -94,7 +115,7 @@ $ git clone https://github.com/cloudfoundry/bosh-deployment
 
 This provides us with the software we need to deploy BOSH.
 
-4. We're now ready to run the `create-env.sh` script and use `bosh` to deploy a
+5. We're now ready to run the `create-env.sh` script and use `bosh` to deploy a
 bosh-director.
 
 ```
