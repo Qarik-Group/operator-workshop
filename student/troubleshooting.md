@@ -56,6 +56,8 @@ $ bosh login
 This is all so that you can SSH to BOSH-lite over a SOCKS5 proxy using the
 jumpbox key that was generated when we deployed.
 
+[//]: # (Links)
+
 [jumpbox]: https://bosh.io/docs/jumpbox
 [socks5]: https://bosh.io/docs/cli-tunnel.html
 [set-vars]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-vars

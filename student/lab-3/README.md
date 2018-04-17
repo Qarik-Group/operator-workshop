@@ -24,12 +24,8 @@ Go to the list of stemcells and look for the target infrastructure you're using:
 
 http://bosh.cloudfoundry.org/stemcells/
 
-Click the "prev..." button to get `bosh upload-stemcell` commands.  Run this to
-upload our warden (container) based stemcell for BOSH-lite:
-
-```
-$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3541.12
-```
+It will have a link for `bosh upload-stemcell` including the version number at
+the end.
 
 ## BOSH-lite Cloud Foundry
 
@@ -69,20 +65,18 @@ bosh -n -d cf deploy cf-deployment/cf-deployment.yml \
 $ git clone https://github.com/cloudfoundry/cf-deployment.git
 ```
 
-5. Ensure our environment variables are set.
+5. Ensure environment variables are in your SSH session, you can use the `env`
+command and grep for `MY`.
 
 ```
 $ env | grep MY
 ```
 
-Add them again in the SSH session if necessary.
+If they are not there, make sure to export them again with the
+[set-vars][set-vars] helper we created at the beginning of `lab-1`.
 
 ```
-export MY_CIDR=10.42.1.0/24
-export MY_GW=10.42.1.1
-export MY_INTERNAL_IP=10.42.1.10
-export MY_EXTERNAL_IP=35.196.19.152
-export MY_SUBNET=student-1
+$ . ~/set-env
 ```
 
 6. There is a small change to the `cloud-config` we need to fix before we can deploy.  An updated `cloud-config.yml` is included in this `lab-3` folder, it changes the initial `vm_type` from "default" to "minimal".
@@ -148,3 +142,4 @@ Next is [lab-4][lab-4].
 
 [releases-page]: https://github.com/cloudfoundry/cf-deployment/releases
 [lab-4]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-4
+[set-vars]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-vars

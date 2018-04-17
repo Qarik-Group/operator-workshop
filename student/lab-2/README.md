@@ -167,8 +167,8 @@ command and grep for `MY`.
 $ env | grep MY
 ```
 
-If they are not there, make sure to export them again with the `set-env` helper
-we created at the beginning of `lab-1`.
+If they are not there, make sure to export them again with the
+[set-vars][set-vars] helper we created at the beginning of `lab-1`.
 
 ```
 $ . ~/set-env
@@ -270,3 +270,4 @@ BOSH-lite!
 
 [canary]: https://bosh.io/docs/terminology.html#canary
 [lab-3]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-3
+[set-vars]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-vars
