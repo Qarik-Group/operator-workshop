@@ -167,14 +167,11 @@ command and grep for `MY`.
 $ env | grep MY
 ```
 
-If they are not there, make sure to export them again.
+If they are not there, make sure to export them again with the `set-env` helper
+we created at the beginning of `lab-1`.
 
 ```
-export MY_CIDR=10.42.1.0/24
-export MY_GW=10.42.1.1
-export MY_INTERNAL_IP=10.42.1.10
-export MY_EXTERNAL_IP=35.196.19.152
-export MY_SUBNET=student-1
+$ . ~/set-env
 ```
 
 6. Since we are in a new lab folder we'll quickly clone down the

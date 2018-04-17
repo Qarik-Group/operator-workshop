@@ -31,8 +31,10 @@ $ vi ~/set-vars
 2. `vi` needs to be in "insert mode" before we can add text.  Push the `i` key
 to do this, and you'll be able to insert the following to the file:
 
+### set-vars
+
 ```
-# variables
+# my variables
 
 export MY_CIDR=10.42.1.0/24
 export MY_GW=10.42.1.1
@@ -41,13 +43,9 @@ export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 export MY_ZONE=us-east1-c
 
-# output
-echo "MY_CIDR=$MY_CIDR"
-echo "MY_GW=$MY_GW"
-echo "MY_INTERNAL_IP=$MY_INTERNAL_IP"
-echo "MY_EXTERNAL_IP=$MY_EXTERNAL_IP"
-echo "MY_SUBNET=$MY_SUBNET"
-echo "MY_ZONE=$MY_ZONE"
+# BOSH variables
+
+export BOSH_ENVIRONMENT=bosh-director
 ```
 
 To save a file with `vi`, hit the `ESC` key and then type `:wq` and ENTER.
