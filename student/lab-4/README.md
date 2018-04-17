@@ -1,46 +1,51 @@
 # lab-4
 
-define what a service broker is in general
+  * define what a service broker is in general
+  * then what a service broker is when it comes to Cloud Foundry
+  * we'll then deploy a MySQL BOSH release that we can use as a service broker
+  * create the service broker in cf
+  * show it be available in the market place
 
-then what a service broker is when it comes to Cloud Foundry
+## cf-mysql-deployment
 
-we'll then deploy a MySQL BOSH release that we can use as a service broker
+### Deploy
 
-create the service broker in cf
-
-show it be available in the market place
-
-## Service Broker
-
-Ensure directory.
+1. Ensure you're in the `~/operator-workshop/student/lab-4` directory.
 
 ```
 cd ~/operator-workshop/student/lab-4
 ```
 
-Make sure we're logged into BOSH director and have correct environment variables.
+2. Ensure environment variables are in your SSH session, you can use the `env`
+command and grep for `MY`.
 
 ```
-export MY_CIDR=10.42.1.0/24
-export MY_GW=10.42.1.1
-export MY_INTERNAL_IP=10.42.1.10
-export MY_EXTERNAL_IP=35.196.19.152
-export MY_SUBNET=student-1
+$ env | grep MY
+```
 
+If they are not there, make sure to export them again with the
+[set-env][set-env] helper we created at the beginning of `lab-1`.
+
+```
+$ . ~/set-env
+```
+
+3. Are you logged into the BOSH director?
+
+```
 bosh logout
 bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
-export BOSH_ENVIRONMENT=bosh-director
 bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password
 bosh login
 ```
 
-Clone the `cf-mysql-deployment` repo.
+4. Clone the `cf-mysql-deployment` repo.
 
 ```
 git clone https://github.com/cloudfoundry/cf-mysql-deployment
 ```
 
-Create new environment variables used in this deploy.
+5. Create new environment variables used in this deploy.
 
 ```
 export BOSH_ENVIRONMENT=bosh-director
@@ -48,13 +53,13 @@ export SYSTEM_DOMAIN=sys.$MY_EXTERNAL_IP.netip.cc
 export CF_ADMIN_PASSWORD=$(bosh int ~/operator-workshop/student/lab-3/deployment-vars.yml --path /cf_admin_password)
 ```
 
-Upload the BOSH release BLOB.
+6. Upload the BOSH release BLOB.
 
 ```
 $ bosh upload-release https://bosh.io/d/github.com/cloudfoundry/cf-mysql-release --sha1 401cd27775423ee6b3a6e53e89010261c17e0c5c
 ```
 
-Create the cf-mysql.sh deploy script.
+7. Create the `cf-mysql.sh` deploy script.
 
 ```
 $ vi cf-mysql.sh
@@ -81,19 +86,29 @@ bosh -n -d cf-mysql deploy cf-mysql-deployment/cf-mysql-deployment.yml \
   -v cf_skip_ssl_validation=true
 ```
 
-Deploy fails
-fix the cloud config
+8. Update the cloud-config.
 
 ```
 $ bosh update-cloud-config cloud-config.yml
 ```
+
+9. Set the security group.
 
 ```
 cf create-security-group p-mysql sg.json
 cf bind-running-security-group p-mysql
 ```
 
+10. Run deploy.
+
+```
+$ sudo chmod +x cf-mysql.sh
+$ ./cf-mysql.sh
+```
+
 When deploy is complete run the broker registrar.
+
+### Post Deploy
 
 how to see list of available errands is `bosh errand` with the name of the deployment.
 
@@ -164,6 +179,7 @@ cf push
 
 bosh upload-release https://bosh.io/d/github.com/cloudfoundry-incubator/cf-routing-release?v=0.145.0
 
+```
 cf marketplace
 
 cf services
@@ -226,3 +242,8 @@ uninstall gradle on server?
 clear the gradle cache?
 
 rm -rf ~/.gradle
+```
+
+[//]: # (Links)
+
+[set-env]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-env
