@@ -81,7 +81,7 @@ $ ./deploy-cf.sh
 
 This will take about 20 minutes to complete.
 
-## Authentication
+## CF-CLI
 
 We've installed the `cf-cli` tool on the **student-workspace** server for us to
 be able to interact with our Cloud Foundry system.  First let's login.
