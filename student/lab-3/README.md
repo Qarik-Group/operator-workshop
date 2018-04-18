@@ -153,4 +153,4 @@ Cloud Foundry platform.
 [lab-4]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-4
 [set-env]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-env
 [cf-cc]: https://github.com/cloudfoundry/cf-deployment/blob/master/iaas-support/bosh-lite/cloud-config.yml
-[mooc]: https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/course/
+[mooc]: https://www.edx.org/course/introduction-cloud-foundry-cloud-native-linuxfoundationx-lfs132x
