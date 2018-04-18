@@ -1,10 +1,5 @@
 # lab-4
 
-  * define what a service broker is in general
-  * then what a service broker is when it comes to Cloud Foundry
-  * we'll then deploy a MySQL BOSH release that we can use as a service broker
-  * create the service broker in cf
-  * show it be available in the market place
 
 ## cf-mysql-deployment
 
@@ -106,19 +101,14 @@ $ sudo chmod +x cf-mysql.sh
 $ ./cf-mysql.sh
 ```
 
-### Errands
+### Team Exercise
 
 ```
-$ bosh -d cf-mysql errands
+$ cf marketplace
 ```
 
-```
-$ bosh -d cf-mysql run-errand broker-registrar
-```
+How do we register the service broker so it shows up in the marketplace?
 
-```
-$ bosh -d cf-mysql run-errand smoke-tests
-```
 
 [//]: # (Links)
 

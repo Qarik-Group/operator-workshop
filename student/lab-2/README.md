@@ -43,7 +43,7 @@ And it created full virtual machines in Google Cloud.
 Next we are going to delete this deployment and create a container-based
 deployment on what's called a BOSH-lite system.
 
-## Team Up
+## Team Exercise
 
 We want to remove the Google Cloud deployment to make room for a BOSH-lite
 deployment next.  
@@ -221,9 +221,9 @@ below: `x509 Unknown Authority`.
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/x509-unknown-authority.png" width="769" height="91" title="x509 Unknown Authority">
 
-## Team Up
+## Team Exercise
 
-It's time to team up again! Figure out what we need to do so we can deploy the "Hello World" release.
+It's time to Team Exercise again! Figure out what we need to do so we can deploy the "Hello World" release.
 
 10 points to the team done first.
 

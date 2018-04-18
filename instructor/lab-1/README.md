@@ -49,7 +49,7 @@ IAM Admin [Service Account][service-account] page and delete unused keys.
 
 The student is now ready to begin student [lab-1][lab-1].
 
-## Team Up Cheat Sheet
+## Team Exercise Cheat Sheet
 
 ## Timers
 

@@ -1,42 +1,22 @@
 # lab-3
 
-BOSH was created to deploy Cloud Foundry.  Our next steps will be to deploy
-Cloud Foundry to containers running on our BOSH-lite director.
+In lab-2, we created a BOSH-lite.  It's running it's own embedded BOSH director.
+We can use this BOSH-lite to deploy software.  After deploying and removing the
+"Hello World" zookeeper deploy, we're ready now to deploy Cloud Foundry to our
+BOSH-lite server.
 
-## How to Choose a Stemcell
+## Cloud Foundry
 
-When you need to deploy any release, you may need to figure out what is the
-right stemcell to use.  Here's a good technique to use.
+This course will not focus on how Cloud Foundry operates, for more about that we
+recommend the rest of this conference, future training focused on Cloud Foundry,
+or [Introduction to Cloud Foundry and Cloud Native Software Architecture][mooc]
+self-led course.
 
-### Release Notes
+### Deploy
 
-  * Read the Release Notes of the software you're about to deploy.
+Follow these steps to setup a Cloud Foundry deployment script.
 
-For example, on the [releases page][releases-page] for `cf-deployment` we see
-a section called **Release and Stemcell Updates**.  It tells us to use the
-`ubuntu-trusty` 3541.12 stemcell version.
-
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/stemcell.png" width="674" height="312" title="Stemcell">
-
-### Target Cloud
-
-  * Are you deploying to containers?
-  * Or are you deploying to a cloud like GCP, AWS, Azure, and so on?
-
-Go to the list of stemcells and look for the target infrastructure you're using:
-
-http://bosh.cloudfoundry.org/stemcells/
-
-It will have a link for `bosh upload-stemcell` including the version number at
-the end.
-
-## BOSH-lite Cloud Foundry
-
-### Deploy CF
-
-We are going to deploy Cloud Foundry together to our BOSH-lite director.
-
-1. Make sure we are in our `lab-3` folder.
+1. Make sure we are in our `lab-3` folder on our **student-workspace** server.
 
 ```
 $ cd ~/operator-workshop/student/lab-3
@@ -83,7 +63,7 @@ $ . ~/set-env
 ```
 
 6. As you may have noticed now, it is common to get your `cloud-config` ready
-before you deploy.  Check your deployment repo for any examples or reference
+before you deploy.  Each deployment repo comes with examples or reference
 material before you prepare you deployment.  We're using the
 [bosh-lite cloud-config][cf-cc] for our deploy.
 
@@ -99,7 +79,9 @@ $ sudo chmod +x deploy-cf.sh
 $ ./deploy-cf.sh
 ```
 
-## CF CLI
+This will take about 20 minutes to complete.
+
+## Authentication
 
 We've installed the `cf-cli` tool on the **student-workspace** server for us to
 be able to interact with our Cloud Foundry system.  First let's login.
@@ -122,7 +104,7 @@ $ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/login-success.png" width="769" height="189" title="Login Success">
 
-## Team Up
+### Team Exercise
 
 Deploy a Hello World App to Cloud Foundry.
 
@@ -132,7 +114,7 @@ $ git clone https://github.com/cloudfoundry-community/cf-env.git
 
 First team done gets another 10 more smack-a-rack-a-points to the big board!
 
-## Troubleshooting Tools
+### App Troubleshooting Commands
 
 Run `cf apps` to see what apps are running.
 
@@ -171,3 +153,4 @@ Cloud Foundry platform.
 [lab-4]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-4
 [set-env]: https://github.com/starkandwayne/operator-workshop/tree/master/student/lab-1#set-env
 [cf-cc]: https://github.com/cloudfoundry/cf-deployment/blob/master/iaas-support/bosh-lite/cloud-config.yml
+[mooc]: https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/course/

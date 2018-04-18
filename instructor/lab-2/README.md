@@ -10,7 +10,7 @@ Build times for specific actions.
   * bosh-lite zookeeper-deployment (5 mins)
   * bosh-lite delete-deployment zookeeper (seconds)
 
-## Team Up Cheat Sheet
+## Team Exercise Cheat Sheet
 
 ### 1. Delete Deployment
 

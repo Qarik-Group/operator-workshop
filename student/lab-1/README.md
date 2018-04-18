@@ -180,38 +180,13 @@ BONUS: How could you do a `bosh login` with something like a
 `bosh int ~/operator-workshop/student/lab-1/creds.yml --path /admin_password`
 to make a one-line login?
 
-### Using Environments
-
-When using bosh commands we can either provide the environment alias
-in each command:
-
-```
-$ bosh -e bosh-director stemcells
-$ bosh -e bosh-director update-cloud-config
-$ bosh -e bosh-director deployments
-```
-
-Or you can export an environment variable, and the commands look like this.
-
-```
-$ bosh stemcells
-$ bosh update-cloud-config
-$ bosh deployment
-```
-
-Simply export your environment alias as the `BOSH_ENVIRONMENT` variable value.
-
-```
-export BOSH_ENVIRONMENT=bosh-director
-```
-
-NOTE: How do you check what your environment is set to?
-
 ## Cloud Config
 
-The cloud-config provides default configs for each deployment to use, that
-unless overridden, will provide a smooth working experience to deploy
-software on the infrastructure.
+Before `cloud-config` each deploy needed to define their networking in repeated
+places of the deployment.  This allows us to absract out most of the
+configuration to one place.
+
+Read more here about http://bosh.io/docs/cloud-config/
 
 The [bosh-deployment][cloud-config] repo has example `cloud-configs` for
 each major cloud like AWS, GCP, Azure, and so on.
@@ -230,7 +205,7 @@ Yet we're going to want to pass in some variables like this:
 $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
 ```
 
-## Team Up
+## Team Exercise
 
 At this time, we're going to break into teams, and your goal will be to
 deploy a "Hello World" BOSH release.  We recommended the

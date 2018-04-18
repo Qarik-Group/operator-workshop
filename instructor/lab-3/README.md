@@ -6,7 +6,7 @@ Build times for specific actions.
 
   * bosh-lite cloud foundry (20 mins)
 
-## Team Up Cheat Sheet
+## Team Exercise Cheat Sheet
 
 ### Hello CF Env
 
