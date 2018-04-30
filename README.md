@@ -1,6 +1,6 @@
 # operator-workshop
 
-First open this git repo in your browswer, as we will not clone to your local hard-drive, but to a remote jumpbox.
+First open this git repo in your browser, as we will not clone to your local hard-drive, but to a remote jumpbox.
 
 https://github.com/starkandwayne/operator-workshop
 
