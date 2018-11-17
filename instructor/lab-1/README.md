@@ -9,7 +9,7 @@ Before the student starts lab 1, do the following:
 As an instructor, sign into `gcloud` on the **student-workspace** server.
 
 ```
-$ gcloud auth login
+$ gcloud auth login --no-launch-browser
 ```
 
 It will give you a URL to click.  Follow link and receive a token to enter back
