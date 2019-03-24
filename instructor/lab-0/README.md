@@ -17,16 +17,30 @@ attendance.
 For this lab, we're using a student network.  We recommend a `10.42.0.0/16`
 because it can give up-to 256 students their own `/24` subnet.
 
+1. Click on VPC network > VPC networks.  This creates all the default VPN
+networks for you. That's fine.  We're going to create our own for each student.
+
+NOTE: IF this is the first time it may need to start your Compute Engine for the
+project.
+
+2. Click on Create VPC Network.
+
+3. Give it a name "student-network".
+
+4. Then in our subnets we're going to create a **Custom** subnets, starting with
+_student-subnet-0_ and going forward with a network per student.
+
 ### Firewall
 
 To ensure firewalls don't become an issue.  Disable them on the internal network.
 
-Create rules that allow ingress/egress for any traffic on `10.42.0.0/16` on any port.
+Create rules that allow ingress/egress for any traffic on `10.42.0.0/16` on any
+port.
 
 ### Workspace
 
 This simplifies us not having to setup individual student machines, and keeps
-it straight for the student too.
+it straightforward for the student too.
 
 1. Under Compute Engine, **Create an Instance**.
 

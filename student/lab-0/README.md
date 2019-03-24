@@ -10,13 +10,13 @@ https://console.cloud.google.com.
 
 ## Confirm Project Access
 
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/bosh-operator-class.png" width="726" height="498" title="BOSH Operator Class">
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/bosh-operator-class.png" width="634" height="606" title="BOSH Operator Class">
 
 1. You can confirm you have access when you have logged into Google Cloud and
 can see the [Project info][identifying_projects] says **Project Name** of
 "bosh-operator-class".
 
-<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png" width="793" height="287" title="SSH Button">
+<img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/ssh-button.png" width="634" height="308" title="SSH Button">
 
 2. Click on the [SSH button][ssh-button] to connect to the **student-workspace**
 server.
