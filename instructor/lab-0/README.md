@@ -77,4 +77,6 @@ $ sudo bin/install-tools
 
 Ready to rock, let's get [lab-1][lab-1] specific requirements setup now.
 
+[//]: # (Links)
+
 [lab-1]: https://github.com/starkandwayne/operator-workshop/tree/master/instructor/lab-1
