@@ -23,7 +23,6 @@ everyone can use and access.
 ```
 $ sudo mkdir -p /var/lib/gcloud
 $ sudo touch /var/lib/gcloud/bob-the-builder.key.json
-$
 ```
 
 In this example, `bob-the-builder` is the name of the **service account** and
