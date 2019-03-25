@@ -83,7 +83,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v internal_gw=$MY_GW \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
-    -v project_id=bosh-operator-class \
+    -v project_id=bosh-training-2019 \
     -v zone=$MY_ZONE \
     -v tags=[internal] \
     -v network=default \

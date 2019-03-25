@@ -9,7 +9,7 @@ Before the student starts lab 1, do the following:
 As an instructor, sign into `gcloud` on the **student-workspace** server.
 
 ```
-$ gcloud auth login --no-launch-browser
+$ gcloud auth application-default login --no-launch-browser
 ```
 
 It will give you a URL to click.  Follow link and receive a token to enter back
@@ -22,24 +22,24 @@ everyone can use and access.
 
 ```
 $ sudo mkdir -p /var/lib/gcloud
-$ cd /var/lib/gcloud
-$ sudo touch bob-the-builder.key.json
-$ sudo chmod 0777 bob-the-builder.key.json
+$ sudo touch /var/lib/gcloud/bob-the-builder.key.json
+$
 ```
 
 In this example, `bob-the-builder` is the name of the **service account** and
-`bosh-operator-class` is our **project-id**.
+`bosh-training-2019` is our **project-id**.
 
 ```
-$ gcloud iam service-accounts create bob-the-builder
-$ gcloud iam service-accounts keys create --iam-account='bob-the-builder@bosh-operator-class.iam.gserviceaccount.com' bob-the-builder.key.json
-$ gcloud projects add-iam-policy-binding bosh-operator-class --member='serviceAccount:bob-the-builder@bosh-operator-class.iam.gserviceaccount.com' --role='roles/editor'
+$ gcloud iam service-accounts create bob-the-builder --display-name "Bob the Builder"
+$ sudo gcloud iam service-accounts keys create --iam-account='bob-the-builder@bosh-training-2019.iam.gserviceaccount.com' /var/lib/gcloud/bob-the-builder.key.json
+$ sudo chmod 0644 /var/lib/gcloud/bob-the-builder.key.json
+$ gcloud projects add-iam-policy-binding bosh-training-2019 --member='serviceAccount:bob-the-builder@bosh-training-2019.iam.gserviceaccount.com' --role='roles/editor'
 ```
 
 If for any reason the key is lost, just use this command:
 
 ```
-$ gcloud iam service-accounts keys create --iam-account='bob-the-builder@bosh-operator-class.iam.gserviceaccount.com' bob-the-builder.key.json
+$ gcloud iam service-accounts keys create --iam-account='bob-the-builder@bosh-training-2019.iam.gserviceaccount.com' /var/lib/gcloud/bob-the-builder.key.json
 ```
 
 And if too many keys get generated for the service account, manage them in the
