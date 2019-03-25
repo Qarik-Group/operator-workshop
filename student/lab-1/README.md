@@ -39,7 +39,6 @@ to do this, and you'll be able to insert the following to the file:
 export MY_CIDR=10.42.1.0/24
 export MY_GW=10.42.1.1
 export MY_INTERNAL_IP=10.42.1.10
-export MY_EXTERNAL_IP=35.196.19.152
 export MY_SUBNET=student-1
 export MY_ZONE=us-east1-c
 
@@ -77,7 +76,6 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/gcp/cpi.yml \
     -o bosh-deployment/uaa.yml \
     -o bosh-deployment/credhub.yml \
-    -o bosh-deployment/external-ip-not-recommended.yml \
     -v director_name=bosh-director \
     -v internal_cidr=$MY_CIDR \
     -v internal_gw=$MY_GW \
@@ -87,8 +85,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v zone=$MY_ZONE \
     -v tags=[internal] \
     -v network=default \
-    -v subnetwork=$MY_SUBNET \
-    -v external_ip=$MY_EXTERNAL_IP
+    -v subnetwork=$MY_SUBNET
 ```
 
 Then hit `ESC`, `:wq`, ENTER to save and quit.
@@ -143,11 +140,11 @@ An alias creates a shortcut that saves connection parameters to a name.
 In our `~/operator-workshop/student/lab-1` folder, run:
 
 ```
-$ bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-1/creds.yml --path /director_ssl/ca)
+$ bosh alias-env bosh-director -e $MY_INTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-1/creds.yml --path /director_ssl/ca)
 ```
 
 Now we have an environment alias called `bosh-director` that points to
-our external IP and can supply our SSL certificate.
+our internal IP and can supply our SSL certificate.
 
 ### Login to BOSH
 
@@ -205,15 +202,15 @@ Yet we're going to want to pass in some variables like this:
 $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v internal_gw=$MY_GW -v subnetwork_name=$MY_SUBNET
 ```
 
-## Team Exercise
+## Exercise
 
-At this time, we're going to break into teams, and your goal will be to
+Link to zookeeper repo
+link to BOSH-CLI commands
+Define bosh stemcells
+
+At this time, and your goal will be to
 deploy a "Hello World" BOSH release.  We recommended the
 [zookeeper-release][zookeeper-release] for BOSH.
-
-First team to get all their teammates to deploy the BOSH release, wins 10
-points.  At the end of the workshop we have a prize for the team with the
-most points!
 
 When you're ready for the next lab, head on over to [lab-2][lab-2].
 
