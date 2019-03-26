@@ -1,6 +1,6 @@
 # lab-5
 
-The road goes on for you from here by exploring on your with the following
+The road goes on for you from here by exploring on your own with the following
 self-led resources.
 
 ## Choose a Cloud
@@ -33,8 +33,7 @@ better to have the same cloud in each environment.
 Once you have a lab to work with, these two guides will step you through how a
 BOSH release is built.  This is important because once you know how a release
 is made, you can become literate in evaluating "off the shelf" releases available
-in the Open Source Software (OSS) community.  For example, on
-[https://bosh.io/releases].
+in the Open Source Software (OSS) community.  For example, on https://bosh.io/releases.
 
 1. Learn how to build a release with the [Learn BOSH][mariash] tutorial.
 2. Also you can follow the **bosh.io** guide for how to [create a release][create-release].
