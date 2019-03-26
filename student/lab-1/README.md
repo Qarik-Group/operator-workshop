@@ -39,7 +39,7 @@ to do this, and you'll be able to insert the following to the file:
 export MY_CIDR=10.42.1.0/24
 export MY_GW=10.42.1.1
 export MY_INTERNAL_IP=10.42.1.10
-export MY_SUBNET=student-1
+export MY_SUBNET=student-subnet-1
 export MY_ZONE=us-east1-c
 
 # BOSH variables
@@ -84,7 +84,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v project_id=bosh-training-2019 \
     -v zone=$MY_ZONE \
     -v tags=[internal] \
-    -v network=default \
+    -v network=student-network \
     -v subnetwork=$MY_SUBNET
 ```
 

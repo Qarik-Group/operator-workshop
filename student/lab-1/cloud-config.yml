@@ -36,7 +36,7 @@ networks:
     azs: [z1, z2, z3]
     dns: [8.8.8.8]
     cloud_properties:
-      network_name: default
+      network_name: studnet-network
       subnetwork_name: ((subnetwork_name))
       ephemeral_external_ip: true
       tags: [internal, concourse]
