@@ -29,7 +29,7 @@ $ . ~/set-env
 
 ```
 bosh logout
-bosh alias-env bosh-director -e $MY_EXTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
+bosh alias-env bosh-director -e $MY_INTERNAL_IP --ca-cert <(bosh int ~/operator-workshop/student/lab-2/creds.yml --path /director_ssl/ca)
 bosh int ~/operator-workshop/student/lab-2/creds.yml --path /admin_password
 bosh login
 ```
@@ -44,7 +44,7 @@ git clone https://github.com/cloudfoundry/cf-mysql-deployment
 
 ```
 export BOSH_ENVIRONMENT=bosh-director
-export SYSTEM_DOMAIN=sys.$MY_EXTERNAL_IP.netip.cc
+export SYSTEM_DOMAIN=sys.$MY_INTERNAL_IP.netip.cc
 export CF_ADMIN_PASSWORD=$(bosh int ~/operator-workshop/student/lab-3/deployment-vars.yml --path /cf_admin_password)
 ```
 
