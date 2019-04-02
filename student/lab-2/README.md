@@ -139,7 +139,6 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/gcp/cpi.yml \
     -o bosh-deployment/uaa.yml \
     -o bosh-deployment/credhub.yml \
-    -o bosh-deployment/external-ip-not-recommended.yml \
     -o bosh-deployment/bosh-lite.yml \
     -o bosh-deployment/bosh-lite-runc.yml \
     -o bosh-deployment/gcp/bosh-lite-vm-type.yml \
@@ -155,7 +154,6 @@ bosh create-env bosh-deployment/bosh.yml \
     -v tags=[internal] \
     -v network=default \
     -v subnetwork=$MY_SUBNET \
-    -v external_ip=$MY_EXTERNAL_IP
 ```
 
 Hit `ESC`, type `:wq` to save the contents of the file.
