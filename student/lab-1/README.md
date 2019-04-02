@@ -204,9 +204,9 @@ $ bosh update-cloud-config cloud-config.yml -v internal_cidr=$MY_CIDR -v interna
 
 ## Exercise
 
-Link to zookeeper repo
-link to BOSH-CLI commands
-Define bosh stemcells
+- Link to zookeeper repo
+- Link to BOSH-CLI commands
+- Define bosh stemcells
 
 At this time, and your goal will be to
 deploy a "Hello World" BOSH release.  We recommended the
