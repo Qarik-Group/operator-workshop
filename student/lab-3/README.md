@@ -99,7 +99,7 @@ $ bosh int deployment-vars.yml --path /cf_admin_password
 certificate we'll need to `--skip-ssl-validation` as we sign in.
 
 ```
-$ cf login -a api.sys.$MY_EXTERNAL_IP.netip.cc --skip-ssl-validation
+$ cf login -a api.sys.$MY_INTERNAL_IP.netip.cc --skip-ssl-validation
 ```
 
 <img src="https://github.com/starkandwayne/operator-workshop/raw/master/images/login-success.png" width="769" height="189" title="Login Success">
