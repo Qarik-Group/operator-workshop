@@ -37,7 +37,7 @@ set -eu
 
 bosh -n -d cf deploy cf-deployment/cf-deployment.yml \
     --vars-store deployment-vars.yml \
-    -v "system_domain=sys.$MY_EXTERNAL_IP.netip.cc" \
+    -v "system_domain=sys.$MY_INTERNAL_IP.netip.cc" \
     -o cf-deployment/operations/bosh-lite.yml \
     -o cf-deployment/operations/use-compiled-releases.yml
 ```
