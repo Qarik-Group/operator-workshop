@@ -139,6 +139,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/gcp/cpi.yml \
     -o bosh-deployment/uaa.yml \
     -o bosh-deployment/credhub.yml \
+    -o bosh-deployment/external-ip-not-recommended.yml \
     -o bosh-deployment/bosh-lite.yml \
     -o bosh-deployment/bosh-lite-runc.yml \
     -o bosh-deployment/gcp/bosh-lite-vm-type.yml \
@@ -149,11 +150,12 @@ bosh create-env bosh-deployment/bosh.yml \
     -v internal_gw=$MY_GW \
     -v internal_ip=$MY_INTERNAL_IP \
     --var-file gcp_credentials_json=/var/lib/gcloud/bob-the-builder.key.json \
-    -v project_id=bosh-training-2019 \
+    -v project_id=bosh-operator-class \
     -v zone=us-east1-c \
     -v tags=[internal] \
-    -v network=student-network \
+    -v network=default \
     -v subnetwork=$MY_SUBNET \
+    -v external_ip=$MY_EXTERNAL_IP
 ```
 
 Hit `ESC`, type `:wq` to save the contents of the file.
