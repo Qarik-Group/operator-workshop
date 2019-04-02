@@ -160,7 +160,7 @@ $ less ~/operator-workshop/student/lab-1/creds.yml
 ```
 
 To login to the BOSH director, copy the value from `admin_password:` from
-the `~/operator-workshop/student/lab-1/creds.yml`.  Then run this `bosh` command:
+the `~/operator-workshop/student/lab-1/creds.yml`; for the `Email ()` prompt use "Admin".  Then run this `bosh` command:
 
 ```
 $ bosh -e bosh-director login
