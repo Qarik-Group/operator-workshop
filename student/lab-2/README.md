@@ -152,7 +152,7 @@ bosh create-env bosh-deployment/bosh.yml \
     -v project_id=bosh-training-2019 \
     -v zone=us-east1-c \
     -v tags=[internal] \
-    -v network=default \
+    -v network=student-network \
     -v subnetwork=$MY_SUBNET \
 ```
 
